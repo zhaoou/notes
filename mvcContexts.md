@@ -1,7 +1,7 @@
 # Spring MVC contexts
 
 
-####Spring MVC uses front controller design pattern with the dispatch servlet receiving all requests.
+#### Spring MVC uses front controller design pattern with the dispatch servlet receiving all requests.
 
 To **start a web application** spring performs the following:
 
@@ -104,7 +104,7 @@ When all said and done here is how contexts will look like
 ```
 WebApplicationContext inherited all beans from the ApplicationContext, and may have overridden some of them
 
-####Filters and Listeners and more on servlets.
+#### Filters and Listeners and more on servlets.
 
 **Filters** are invoked before and after the servlet, and can be used to inspect/modify request/response objects. AKA AOP of the web.
 
