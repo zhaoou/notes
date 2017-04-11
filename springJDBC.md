@@ -10,7 +10,7 @@ There is a series of steps that we need to go through to properly configure JDBC
 * Repository that uses JDBCOperations to perform CRUD operations.
 
 
-####Datasource
+#### Datasource
 DataSource is similar to DriverManager, but offers additional functionality:
 
 * Connection pool - speeds up DB access using a set of always-open connections.
@@ -33,7 +33,7 @@ return ds;
 ```
 
 
-####JDBCTemplate in repository
+#### JDBCTemplate in repository
 
 According to the domain driven design, we provide repository for our object, and repository is responsible for management of underlying persistent mechanism. (Database in this case)
 
@@ -52,7 +52,7 @@ public class JDBCMessageRepository implements MessageRepository{
  }
 ```
 
-####Using JDBCTemplate in the repository
+#### Using JDBCTemplate in the repository
 
 This method shows how to insert a message:
 ```
