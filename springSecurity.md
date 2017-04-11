@@ -5,7 +5,7 @@ Two basic mechanisms spring security uses to secure your app are:
 * servlet filter
 * method security
 
-####Servlet filter
+#### Servlet filter
 
 ```
                |------------------------|     |------------------|
@@ -20,7 +20,7 @@ httpRequest--->| spring security filter |---->| dispatch servlet |
 ```
 
 
-####Method security
+#### Method security
 using a proxy object, spring wraps target objects and applies security aspect.
 
 
