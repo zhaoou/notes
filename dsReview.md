@@ -1,7 +1,7 @@
 # DS review
 
 
-#Asymptotic complexity: time and space
+## Asymptotic complexity: time and space
 Asymptotic complexity theory helps us compare different algorithms' time and space requirements, as size of the problem (N) grows.
 
 Let's focus our discussion on time complexity first.
@@ -123,7 +123,7 @@ To turn heap into a sorted array, we remove a node from the heap and prepend int
 Merge sort is &#1012;(n log n).
 
 
-#Trees
+# Trees
 
 A tree is a recursive data structure consisting of nodes with left and right subtrees. A binary tree is a tree with nodes that have two children: left and right.
 A textbook depiction of a binary tree node looks like this:
@@ -241,7 +241,7 @@ When searching for an item, should keep searching past the previously-occupied i
 
 Hashtables are O(n) and &#937;(1), with the average case still &#937;(1), which is great!
 
-#Graphs
+# Graphs
 Graphs represent real life structures where we have points of interest and connections/links between them.
 In CS we call points of interest nodes or vertexes, and links are called edges.
 
