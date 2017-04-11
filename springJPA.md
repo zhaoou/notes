@@ -1,6 +1,6 @@
 # Spring JPA
 
-#JPA is a high level persistence abstraction.
+## JPA is a high level persistence abstraction.
 
 JPA allows us to have transparent persistence: moving objects from heap to permanent storage and back, without any SQL.
 
@@ -40,7 +40,7 @@ Next, we look at aspects of storing entity relationships:
 * unidirectional / bidirectional relations
 * @OneToMany, @ManyToOne, @OneToOne, @ManyToMany
 
-##uni/bi-directional relations
+## uni/bi-directional relations
 
 **Unidirectional** relations allow one entity to refer to another. That is, entity navigation is possible in one direction only: from Item to Order.
 
@@ -60,7 +60,7 @@ And **in a bidirectional** relationships:
  * After bidirectional linking, save the owning entity to save new relation.
 
 
-##@OneToMany, @ManyToOne
+## @OneToMany, @ManyToOne
 (fyi: examples inspired by the Hibernate in Action book)
 
 There are:
@@ -71,7 +71,7 @@ There are:
 
 relations.
 
-#####Unidirectional @OneToMany:
+### Unidirectional @OneToMany:
 
 ```
 @Entity
@@ -82,7 +82,7 @@ public class Item {
 // Bid doesn't have @ManyToOne and reference to Item
 ```
 
-#####Unidirectional @ManyToOne
+### Unidirectional @ManyToOne
 
 ```
 @Entity
@@ -93,7 +93,7 @@ public class Bid {
 }
 ```
 
-#####Bidirectional @OneToMany - @ManyToOne
+### Bidirectional @OneToMany - @ManyToOne
 are different sides of the same relationship. One entity is the *many* side, and the other is the *one* side.
 
 In bidirectional relationships, we have to identify two sides: owning side and inverse side. In @ManyToOne, **many side always owns the relationships**.
@@ -116,9 +116,9 @@ When adding a new Role to a User, we have to make sure we double link the refere
 
 
 
-##@OneToOne, @ManyToMany
+## @OneToOne, @ManyToMany
 
-#####@OneToOne
+### @OneToOne
 
 There are:
 
@@ -148,7 +148,7 @@ public class Role{
 ```
 
 
-#####@ManyToMany
+### @ManyToMany
 
 The most important thing about @ManyToMany is that we need to use a join table. This type of relationships is not frequently occuring, and not very complex to implement.
 We can choose which side owns the relationship, depending on the use case.
