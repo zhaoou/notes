@@ -6,7 +6,7 @@ Having been struggling with joins myself for years, I decided to end this strugg
 
 Having read a few posts like this [one](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), I feel that set based visual explanation is nice, but doesn't really help with the real life situations I encounter.
 
-####Joins add columns to the result set based on a certain condition.
+#### Joins add columns to the result set based on a certain condition.
 
 I found that in practice, I almost always use inner join, aka join. Inner join is similar to an intersection in set theory, elements that are present in both A and B. Taking it one step further inner join of A, B, and C, consists of elements that are elements in A, and in B and in C.
 
