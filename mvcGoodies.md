@@ -14,7 +14,7 @@ Services interact with and manipulate entities to perform use cases. It is a goo
 In the best case scenario, controllers never interact with the entities directly, only through services. When a request is coming in appropriate method is selected to handle it, this method may perform validations and delegates to a service designed specifically to handle this use case. Service knows how to manipulate entities to perform the use case. This action may result in some objects returned to the controller, that in turn decides what view to return, what messages to show to the user, etc.
 
 
-#####@ControllerAdvice goodies#####
+##### @ControllerAdvice goodies 
 
 Controller methods can become busy if we try to perform everything in them. Spring allows us to move some of the commonly needed functionality outside of controllers using @ControllerAdvice.
 
