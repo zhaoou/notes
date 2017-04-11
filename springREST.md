@@ -5,9 +5,9 @@ All we have to do is configure ViewResolver to return JSON for our objects inste
 
 There are 2 main ways we can configure Spring to do that:
 
-###Content Negotiation & Message Conversion
+### Content Negotiation & Message Conversion
 
-####Content Negotiation
+#### Content Negotiation
 Requires ContentNegotiatingViewResolver .
 
 ContentNegotiatingViewResolver:
@@ -38,7 +38,7 @@ public ViewResolver cnViewResolver(ContentNegotiationManager cnm) {
  return cnvr;
 }
 ```
-####Message Conversion
+#### Message Conversion
 
 * Spring can convert objects to and from some desired representations using Message Converters.
 * There is a number of them wired by default; we can declare the additional ones.
