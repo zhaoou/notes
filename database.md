@@ -1,4 +1,4 @@
-###Database 
+#Database
 
 As a developer, I would like to think that databases solve one problem: persistence. I like to work with objects, and with most programs being long running processes, we can run into a situation where we create so many objects that we run out of memory. Another motivation, is that we want our object to outlive our application. That is, if the program is stopped, we want to have access to the same data when it is restarted. Whatever the reason, databases are a very common solution available.
 
