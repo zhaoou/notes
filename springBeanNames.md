@@ -5,7 +5,7 @@
 
 In each of the ( javaconfig | autowiring | XML ) there is a default name given to a bean, and a way to override that name.
 
-###Javaconfig
+### Javaconfig
 
 Default
 ```
@@ -26,7 +26,7 @@ pubic Team sox(){}
 
 
 
-###Autowiring
+### Autowiring
 
 Default
 ```
@@ -44,7 +44,7 @@ class BBGame implements Game{}
 // type: Game
 // name: duck
 ```
-###XML
+### XML
 
 Default
 
