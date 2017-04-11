@@ -3,7 +3,7 @@
 
 Transactions allow us to fine tune concurrent access to our data sources.
 
-###Understanding transactions in Spring
+### Understanding transactions in Spring
 **Transactions are broadly classified into 2 main categories:**
 
 * Local - using one transactional resource, like 1 database
@@ -68,7 +68,7 @@ Traditionally, people describe TX using ACID properties, here it is explained in
 * D - durability: this a problem that transactional resources take care of.
 
 
-#####Atomicity
+##### Atomicity
 To ensure **atomicity** in our transactional code, we need to establish boundaries of the transaction and clearly understand what actions should be taking place as a unit. Specifically, Java methods define TX boundaries.
 
 Another thing we sometimes have to consider to ensure atomicity, is how a transaction is propagated.
@@ -100,10 +100,10 @@ Method being called needs a **MANDATORY** transactions:
 
 There are also other ways to propagate a TX, see the spring docs for more info :)
 
-#####Consistency
+##### Consistency
 Our transactions should ensure the state of the system is valid before and after transaction.
 
-#####Isolation
+##### Isolation
 To take care of proper **isolation** means to understand what is acceptable for our transaction to see with respect to what is being written by other transactions.
 
 Review this here:
