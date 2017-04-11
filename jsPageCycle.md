@@ -12,7 +12,7 @@ Browsers perform the following two tasks for each page:
 * Build DOM and parse JS
 * Manage the event queue
 
-##Build DOM and parse JS
+## Build DOM and parse JS
 As a browser receives content(HTML, CSS, & JS) from the webserver, it starts building DOM from the html and parses JS as it is encountered. Browser switches between these two task: parsing JS, building DOM, depending on the content from the server.
 
 All JS encountered by the browser can be divided into:
@@ -23,7 +23,7 @@ All JS encountered by the browser can be divided into:
 
 When DOM is rendered and JS is parsed, browsers switch to the event queue management.
 
-##Manage the event queue
+## Manage the event queue
 As a mouse is moved, server responses received, and timers expire, events are generated and placed on a single event queue.
 
 Many events are generated at any given second, but nothing happens because not all of the events are of interest. To indicate that some event is of interest to us, we register an event handler - a simple, quick, function to be invoked on a given event.
