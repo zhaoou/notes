@@ -55,6 +55,7 @@ This (silly) SQL:
 
 creates these tables:
 
+```
 Person
 1 John lucerne
 2 Adam wilton
@@ -70,35 +71,43 @@ Item
 1 70000
 2 55000
 3 22000
+```
 
 Now if we run `select * from Person;` we get
 
+```
 1 John lucerne
 2 Adam wilton
 3 Dick torono
+```
 
 where all of the rows come from Person, since we are not doing the join yet. We can build on that result by using joins.
 
 Let's add some information from Purchase:
 
+```
     select * from (
      Person pn
      join
      Purchase ps
      on pn.id = ps.person_id
     );
+```
 
 We should get something like this:
 
+```
 1 John lucerne 1 2 300
 2 Adam wilton  2 3 200
 3 Dick torono  3 1 50
 1 John lucerne 1 2 70
+```
 
 Where left half of the result is from the Person and the right is from the Purchase. The resulting set can contain 0 or more tuples. It will contain 0 rows if none of the rows in the original tables meet the condition we defined in `on pn.id = ps.person_id` clause.
 
 We can take it even further:
 
+```
     select * from(
      Person pn
       join
@@ -110,11 +119,13 @@ We can take it even further:
     )
     where price in(22000, 55000)
     ;
+```
 
 This sql will add to the result of the previous statement columns from the `Item` table and filter by price the resulting set.
 
 Here is the result set with the table it came from at the top:
 
+```
     Person         | Purchase                      | Item
     id name city   | person_id item_id item_count  | id price
     1  John lucerne  1         2       300          2  55000
@@ -123,6 +134,7 @@ Here is the result set with the table it came from at the top:
      \--------------/
          1st join               \------------------/
                                       2nd join
+```
 
 This explanation is about inner join, but there are also left and right outer joins.
 
