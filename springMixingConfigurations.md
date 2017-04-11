@@ -9,11 +9,11 @@ The solution that spring framework designers chose is very familiar to java prog
 
 Possible ways we can mix configurations are:
 
-####XML and/or java config beans in autowiring#####
+#### XML and/or java config beans in autowiring#####
 
 * This happens automatically, no action is needed.
 
-####Javaconfig and/or xml defined beans in javaconfig####
+#### Javaconfig and/or xml defined beans in javaconfig####
 
 * One javaconfig can use beans from another javaconfig by adding ``@Import({Config.class})`` to the javaconfig class where it is needed.
 
@@ -21,7 +21,7 @@ Possible ways we can mix configurations are:
 
 * To add autowired beans to javaconfig, just add ``@ComponentScan`` to the javaconfig class.
 
-####Javaconfig and/or xml defined beans to xml####
+#### Javaconfig and/or xml defined beans to xml####
 
 * xml can use beans from another xml by adding the following element:
     ``<import resource="config.xml" />``
