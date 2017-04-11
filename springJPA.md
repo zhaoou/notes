@@ -40,7 +40,7 @@ Next, we look at aspects of storing entity relationships:
 * unidirectional / bidirectional relations
 * @OneToMany, @ManyToOne, @OneToOne, @ManyToMany
 
-## uni/bi-directional relations
+## Uni/Bidirectional relations
 
 **Unidirectional** relations allow one entity to refer to another. That is, entity navigation is possible in one direction only: from Item to Order.
 
