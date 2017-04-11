@@ -17,7 +17,7 @@ Having declared several beans, we can now wire them, or provide dependencies nee
 Spring traditionally provides two types of dependency injection:
 **constructor and setter** based injections.
 
-######In **constructor injection** we might want to inject:
+#### In **constructor injection** we might want to inject:
 
 Literal values:
 
@@ -54,7 +54,7 @@ Collection of references to other beans:
     </bean>
 Note: instead of lists, we could use maps or sets, or even properties.
 
-######Setter injection:
+#### Setter injection:
 
 Just like with the constructor injection, we may want to inject references or literal value (in one example):
 
