@@ -1,6 +1,6 @@
 # Spring JPA queries
 
-####Basic Queries
+#### Basic Queries
 
  Query methods are in the EntityManager.
 The find method can be used to find instances.
@@ -9,7 +9,7 @@ The find method can be used to find instances.
 em.find(User.class, id);
 ```
 
-####JPQL
+#### JPQL
 
 * is a language similar to SQL
 * is used to create, search, update or delete entities
@@ -27,7 +27,7 @@ SELECT c FROM Customer c WHERE c.name LIKE :custName
 
 `:custName` must be assigned before the query is run!
 
-####Dynamic Queries
+#### Dynamic Queries
 
 The `createQuery` method is used to create dynamic queries.
 They are defined directly in the method.
@@ -41,7 +41,7 @@ They are defined directly in the method.
 }
 ```
 
-####Static Query (@NamedQuery)
+#### Static Query (@NamedQuery)
 
 The `createNamedQuery` method is used to create static queries.
 They are declared using the @NamedQuery annotation.
@@ -62,13 +62,13 @@ public List findWithName(String name) { 
 }
 ```
 
-####Native Query (SQL)
+#### Native Query (SQL)
 
 ```
 em.createNativeQuery(“select * from item”, Item.class);
 ```
 
-####Named Parameters in Queries
+#### Named Parameters in Queries
 
 * Named parameters are prefixed with a colon `:`
 * `setParameter(String name, Object val)` to set value
@@ -84,7 +84,7 @@ public List findWithName(String name) {
 
 Named parameters are case-sensitive and may be used by both dynamic and static (named) queries.
 
-####Positional Parameters in Queries
+#### Positional Parameters in Queries
 
 * Positional parameters are a question mark `?` followed the position number, from 1 and up.
 * `setParameter(integer postn, Object val)` to set value
@@ -100,9 +100,9 @@ public List findWithName(String name) {
 
 Input parameters are case-sensitive, and may be used by both dynamic and static queries.
 
-###Bonus topics
+### Bonus topics
 
-####Pagination
+#### Pagination
 
 Allows us to control what subset of the results is returned.
 
@@ -114,7 +114,7 @@ query.setFirstResult(40).setMaxResults(10);
 This can be used to process items in batches, can be useful for web pages.
 
 
-####Join Fetch
+#### Join Fetch
 
 The FETCH option can be used on a JOIN to fetch the related objects in a single query. This avoids additional queries for each of the object's relationships, and ensures that the relationships have been fetched if they were LAZY.
 
@@ -133,7 +133,7 @@ SELECT e FROM Employee e LEFT JOIN FETCH e.address
 Hint:
 Pagination and Join Fetch are common solutions to n+1 problem.
 
-####Getting results
+#### Getting results
 
 Here are the two most useful methods for getting results of the query:
 
@@ -148,4 +148,4 @@ And here is some great resources(which were used in writing this post):
 http://docs.oracle.com/javaee/6/tutorial/doc/bnbtg.html
 https://en.wikibooks.org/wiki/Java_Persistence/JPQL
 
-######Cheers!
+###### Cheers!
