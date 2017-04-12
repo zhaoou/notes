@@ -1,5 +1,7 @@
 # Spring REST
 
+
+## We are REST providers:
 If you are familiar with REST, you might be wondering how to enable it in Spring.
 All we have to do is configure ViewResolver to return JSON for our objects instead of HTML.
 
@@ -105,3 +107,7 @@ __________________________________________________
 ```
 
 We can also  use @RestController on the controller. This is equivalent to having @ResponseBody on all of the methods in that controller.
+
+
+
+## We are REST consumers:
