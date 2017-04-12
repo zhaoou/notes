@@ -111,7 +111,7 @@ Query query = em.createQuery("select i from Item i");
 query.setFirstResult(40).setMaxResults(10);
 ```
 
-This can be used to process items in batches, can be useful for web pages.
+This can be used to process items in batches, can be useful for web pages and REST endpoints.
 
 
 #### Join Fetch
