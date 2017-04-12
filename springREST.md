@@ -5,7 +5,7 @@ All we have to do is configure ViewResolver to return JSON for our objects inste
 
 There are 2 main ways we can configure Spring to do that:
 
-### Content Negotiation & Message Conversion
+### Content Negotiation & Message Conversion (rarely used, write a separate REST controller using messsage translation)
 
 #### Content Negotiation
 Requires ContentNegotiatingViewResolver .
