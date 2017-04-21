@@ -112,3 +112,38 @@ We can also  use @RestController on the controller. This is equivalent to having
 
 
 ## Below we cover REST consumption
+
+Using RestTemplate we can issue GET and POST requests to a REST endpoint. We usually use GET to get a resource and POST to create a resource on the endpoint.
+
+Java API for XML Binding (JAXB) is a spec, and an implementation of choice is Jackson. 
+
+Jackson works both ways: 
+
+* class + JSON -> object
+* object + class -> JSON
+
+So, if we want to get a Java object from JSON, we need to have a class defining that object. Often, we have to design one by looking at JSON.
+
+This is another example of message conversion in Spring.
+
+With this in mind, using RestTemplate is straighforward:
+
+```
+// Fetch a contact resource by id from a given endpoint(defined by url):
+
+String getUrl 		= "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact/{id}";
+
+public Contact getContact(Long id){
+		return new RestTemplate().getForObject(getUrl, Contact.class, id);
+}
+
+// Create a contact resource at the endpoint:
+
+String postUrl 		= "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact";
+
+public Contact postContact(Contact c){
+		return new RestTemplate().postForObject(postUrl, c, Contact.class);
+	}
+```
+
+Yes, it's really that easy.
