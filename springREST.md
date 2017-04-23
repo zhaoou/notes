@@ -129,21 +129,27 @@ This is another example of message conversion in Spring.
 With this in mind, using RestTemplate is straighforward:
 
 ```
-// Fetch a contact resource by id from a given endpoint(defined by url):
+/* Fetch a contact resource by id from a given endpoint(defined by url) */
 
-String getUrl 		= "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact/{id}";
-
+String getUrl = "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact/{id}";
 public Contact getContact(Long id){
-		return new RestTemplate().getForObject(getUrl, Contact.class, id);
+	return new RestTemplate().getForObject(getUrl, Contact.class, id);
 }
 
-// Create a contact resource at the endpoint:
+/* Create a contact resource at the endpoint */
 
-String postUrl 		= "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact";
-
+String postUrl 	= "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contact";
 public Contact postContact(Contact c){
-		return new RestTemplate().postForObject(postUrl, c, Contact.class);
-	}
+	return new RestTemplate().postForObject(postUrl, c, Contact.class);
+}
+
+/* Get all Contacts from the endpoint */
+
+private String getAllUrl = "http://localhost:8080/SpringRestDemo-0.0.1-SNAPSHOT/contacts/all";
+public List<Contact> getAllContacts() {
+	Contact[] response = new RestTemplate().getForObject(getAllUrl, Contact[].class);
+	return Arrays.asList(response);
+}
 ```
 
 Yes, it's really that easy.
