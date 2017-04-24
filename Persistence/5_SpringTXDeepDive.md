@@ -106,10 +106,6 @@ Our transactions should ensure the state of the system is valid before and after
 ##### Isolation
 To take care of proper **isolation** means to understand what is acceptable for our transaction to see with respect to what is being written by other transactions.
 
-Review this here:
-
-* http://mvd.ghost.io/isolation/
-
 We can specify isolation and propagation we need, using @Transactional.
 
 Some other important things we can control using @Transactional:
