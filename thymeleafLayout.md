@@ -24,4 +24,4 @@ And **wrap the fragment that we want to decorate** (insert into the layout) in s
 
 But the best thing about thymeleaf, is that we can use both of these layout approaches.
 
-[Here is a great resource!](ttp://www.thymeleaf.org/doc/articles/layouts.html)
+[Here is a great resource!](http://www.thymeleaf.org/doc/articles/layouts.html)
