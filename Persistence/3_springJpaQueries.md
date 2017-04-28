@@ -147,7 +147,6 @@ There is also [Criteria API](http://docs.oracle.com/javaee/6/api/javax/persisten
 And here are some great resources(which were used in writing this post):
 
 * http://docs.oracle.com/javaee/6/tutorial/doc/bnbtg.html
-
 * https://en.wikibooks.org/wiki/Java_Persistence/JPQL
 
 ###### Cheers!
