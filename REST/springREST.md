@@ -116,7 +116,7 @@ We can also  use @RestController on the controller. This is equivalent to having
 
 Using RestTemplate we can issue GET and POST requests to a REST endpoint. We usually use GET to get a resource and POST to create a resource on the endpoint.
 
-Java API for XML Binding (JAXB) is a spec, and an implementation of choice is Jackson. 
+Java API for JSON Binding is a spec, and an implementation of choice is Jackson. 
 
 Jackson works both ways: 
 
