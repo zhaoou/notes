@@ -28,7 +28,7 @@ Literal values:
 References:
 
     <bean class="x.y.Zoo">
-      <constructor-arg value="London zoo" />
+      <constructor-arg ref="elephant"/>
     </bean>
 
 Collection of literal values:
