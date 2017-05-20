@@ -1,6 +1,6 @@
 # Spring review questions
 
-##Core Spring
+## Core Spring
 
 What is spring
 Why use spring over regular Java
@@ -28,7 +28,7 @@ What is a repository?
 What is a datasource? How is it different from drivermanager?
 Describe steps to configure JDBC based repository in Spring
 
-##JPA
+## JPA
 
 What is JPA?
 What is Hibernate? compare Hibernate and JPA.
@@ -75,13 +75,13 @@ What role does repository play in spring transactions?
 What role does service play in spring transactions? Give an example.
 
 
-##MVC
+## MVC
 ...
 
-##REST
+## REST
 ...
 
-##Security
+## Security
 ...
 
 
