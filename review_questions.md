@@ -146,12 +146,172 @@ What role does service play in spring transactions? Give an example.
 
 
 ## MVC
-...
+
+What is servlet?
+
+What 2 main abstractions are used with servlet?
+
+What is servlet container? One example of.
+
+What is JSP?
+
+What is dispatch servlet?
+
+Who creates dispatch servlet?
+
+What is AbstractAnnotationConfigDispatcherServletInitializer?
+
+What 3 main actions does AbstractAnnotationConfigDispatcherServletInitializer perform?
+
+How does container find AbstractAnnotationConfigDispatcherServletInitializer?
+
+What 2 main contexts are need for SpringMVC?
+
+What is the relationship between 2 main contexts in SpringMVC?
+
+What functionality logically belongs to the root(core) context? Name a few bean types that live there.
+
+What functionality logically belongs to the web context? Name a few bean types that live there.
+
+How to configure web context? 
+
+	@Configuration
+	@EnableWebMvc
+	@ComponentScan("web")          // web related beans
+	public class WebConfig extends WebMvcConfigurerAdapter {}
+	
+
+What is view resolver? 
+
+What is servlet filter? How is it similar to AOP?
+
+Describe request flow through SpringMVC framework, in as much details as possible, draw a diagram.
+
+What is a controller?
+
+How to configure a controller? What annotation can we have in a controller?
+
+What is ui.model?
+
+What is a view template?
+
+What is a templating engine.
+
+How is ui.model used with templating engines?
+
+What 2 main http methods do you know? 
+
+What is the difference between 2 main http method?
 
 ## REST
-...
+
+What is REST?
+
+What do we mean by 'state'
+
+Who are the main users of the REST?
+
+what is http request header?
+
+What is content negotiation?
+
+What is message conversion?
+
+What role does view resolver play in message conversion in REST?
+
+What 2 main roles exist in REST web service?
+
+What does it mean to be an endpoint?
+
+What does it mean to be an endpoint consumer?
+
+What is a REST template?
+
+How to use REST template to GET resource?
+
+How to use REST template to POST resource? What does it mean to post a resource?
+
 
 ## Security
-...
+
+What 2 main approaches does spring security use to secure our applications?
+
+What is an authority?
+
+What is a cookie?
+
+What is a session?
+
+What 2 main interfaces help spring security understand a user based on the username? 
+
+How can we implement these 2 main interfaces in our application?
+
+What is a password encoder?
+
+Describe main url routes used by spring security
+
+What is a success/failure handler?
+
+How to utilize spring security in views? 
+
+Explain each line of the following code:
+
+	@Configuration
+	@EnableWebSecurity
+	public class SecurityConfig extends WebSecurityConfigurerAdapter{
+
+		@Autowired
+		UserDetailsService userService;
+
+		@Bean
+		public PasswordEncoder passwordEncoder() {
+			return new BCryptPasswordEncoder();
+		}
+
+		@Autowired
+		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+			auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+		}
+
+		@Override
+		public void configure(WebSecurity web) throws Exception {
+			web.ignoring().antMatchers("/assets/**");
+		}
 
 
+		@Override
+		protected void configure(HttpSecurity http) throws Exception {
+			http
+				.authorizeRequests()
+				.antMatchers("/admin/**").hasRole("ADMIN") // order is important
+				.antMatchers("/**").hasAnyRole("ADMIN", "USER")
+			.and()
+				.formLogin()
+				.loginPage("/login")
+				.permitAll()
+			.successHandler(
+		(request, response, authentication) -> response.sendRedirect("/main"))
+			.failureHandler(
+		(request, response, authentication) -> response.sendRedirect("/login"))
+			.and()
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessUrl("/").deleteCookies("JSESSIONID")
+				.invalidateHttpSession(true)
+			.and()
+				.csrf();
+		}
+	}
+
+What is method security?
+
+What does this do:
+
+	@Secured({"ROLE_ADMIN"})
+	
+Explain each line of this code:
+
+	@Configuration
+	@EnableGlobalMethodSecurity(securedEnabled=true)
+	public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {}
+	
+Now read this in Kevin Malone's voice: "Nice"
