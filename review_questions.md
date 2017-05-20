@@ -24,6 +24,10 @@ Describe domain language used in describing aspects
 
 How to start spring context in a main method? 
 
+    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);			
+		Game game = context.getBean("cricketGame", Game.class);
+		System.out.println(game.playGame());
+
 ## JDBC
 
 Describe JDBC without spring
