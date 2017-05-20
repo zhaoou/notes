@@ -3,13 +3,21 @@
 ## Core Spring
 
 What is spring
+
 Why use spring over regular Java
+
 What is DI?
+
 3 ways to configure spring container, describe each in detail
+
 describe default bean naming in all 3 configuration types, and how to override these defaults
+
 name all possible ways to mix configurations in spring
+
 name 4 bean scopes, which ones are pertinent to SpringMVC?
+
 what is AOP?
+
 How do we use AOP in spring, give 3 examples
 Describe domain language used in describing aspects.
 How to start spring context in a main method? 
