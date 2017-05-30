@@ -127,3 +127,39 @@ And here is how you add security to a methods:
 @Secured({"ROLE_ADMIN"})
 public void addUser(User user) {
 ```
+
+### View security
+Two common things we want to do in views are:
+
+* Show information about current user   
+* Conditional rendering of template parts
+
+##### Show information about current user
+```
+<div sec:authentication="name">
+  The value of the "name" property of the authentication object should appear here.
+</div>
+```
+##### Conditional rendering of template parts
+
+Basic:
+```
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+  This will only be displayed if authenticated user has role ROLE_ADMIN.
+</div>
+```
+Is this user authorised to visit this URL?
+```
+<div sec:authorize-url="/admin">
+  This will only be displayed if authenticated user can call the "/admin" URL.
+</div>
+``` 
+Is this user authorised to POST to this URL?
+```
+<div sec:authorize-url="POST /admin">
+  This will only be displayed if authenticated user can call the "/admin" URL using the POST HTTP method.
+</div>
+```
+
+
+
