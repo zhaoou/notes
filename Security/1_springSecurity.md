@@ -160,14 +160,32 @@ Is this user authorised to POST to this URL?
   This will only be displayed if authenticated user can call the "/admin" URL using the POST HTTP method.
 </div>
 ```
-Since thymeleaf security is not included in thymeleaf, we also need to add a dependency:
+**Since thymeleaf security is not included in thymeleaf by default, we need to configure a few things: **
+
+
+* Add dependency:
 ```
-org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.1.RELEASE
+<dependency>
+  <groupId>org.thymeleaf.extras</groupId>
+  <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+</dependency>
 ```
-And add a namespace to the views:
+
+* import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+* and add bean of this class to our context:
 ```
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+@Bean
+public SpringSecurityDialect securityDialect() {
+  return new SpringSecurityDialect();
+}
 ```
-Cooooool.
+
+* add security namespace to the views:
+```
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+```
+Now we can use all the goodies mentioned above. Have fun!
 
 
