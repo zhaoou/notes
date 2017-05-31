@@ -160,7 +160,7 @@ Is this user authorised to POST to this URL?
   This will only be displayed if authenticated user can call the "/admin" URL using the POST HTTP method.
 </div>
 ```
-**Since thymeleaf security is not included in thymeleaf by default, we need to configure a few things: **
+** Since thymeleaf security is not included in thymeleaf by default, we need to configure a few things: **
 
 
 * Add dependency:
