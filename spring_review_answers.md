@@ -36,14 +36,14 @@ In Autowiring+scan: bean name is its class name (User -> user). override: @Compo
 
 * name all possible ways to mix configurations in spring
 
-Use beans defined in XML and Javaconfig in autowiring:
+**Use beans defined in XML and Javaconfig in autowiring:**
 
-XML         -> autowiring: without additional configuration
+XML         -> autowiring: without additional configuration
 
 Javaconfig  -> autowiring: without additional configuration
 
 
-Use beans defined in javaconfig, xml, autowiring+scan in javaconfig:
+**Use beans defined in javaconfig, xml, autowiring+scan in javaconfig:**
 
 Javaconfig  -> javaconfig: @Import(Config.class)
 
@@ -52,7 +52,7 @@ XML         -> javaconfig: @ImportResource("classpath:config.xml")
 autowiring  -> javaconfig: add @ComponentScan on javaconfig file
 
 
-Use beans defined in xml, javaconfig, componentscan in xml:
+**Use beans defined in xml, javaconfig, componentscan in xml:**
 
 xml           -> xml: <import resource="other_config.xml" 
 
