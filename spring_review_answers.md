@@ -19,37 +19,56 @@ Use constructor to define mandatory dependencies and setter injection for option
 * 3 ways to configure spring container, describe each in detail
 
 (1) XML, (2) javaconfig, and (3) autowiring+component scan.
+
 XML: define beans and wiring in 'beans' element of an xml document, create application context using this xml document.
+
 Javaconfig: define and wire beans in a java @Configuration file, use this file to create application context.
+
 Autowiring+scan: Define beans using @Component, define dependencies using @Autowired, add @Configuration class with @ComponentScan, use this class to create context.
 
 * Describe default bean naming in all 3 configuration types, and how to override these defaults
 
 In XML: bean name(aka id) is class name with a generated number, override by adding id attribute in bean declaration.
+
 In Javaconfig: bean name is the name of the method annotated with @Bean, override by adding @Bean(name="john")
+
 In Autowiring+scan: bean name is its class name (User -> user). override: @Component("john").
 
 * name all possible ways to mix configurations in spring
 
 Use beans defined in XML and Javaconfig in autowiring:
+
 XML         -> autowiring: without additional configuration
+
 Javaconfig  -> autowiring: without additional configuration
 
+
 Use beans defined in javaconfig, xml, autowiring+scan in javaconfig:
+
 Javaconfig  -> javaconfig: @Import(Config.class)
+
 XML         -> javaconfig: @ImportResource("classpath:config.xml")
+
 autowiring  -> javaconfig: add @ComponentScan on javaconfig file
 
+
 Use beans defined in xml, javaconfig, componentscan in xml:
+
 xml           -> xml: <import resource="other_config.xml" 
+
 javaconfig    -> xml: declare a bean of config type <import resource="config.xml" />
+
 componentscan -> xml: scan for components <context:component-scan base-package="a.b" />
+
 
 * name 4 bean scopes, which ones are pertinent to SpringMVC?
 
 Singleton - all beans are singletons by default, spring wires reference to the same bean,
+
 Prototype - new instance for each dependency is created,
+
 Session - new instance per web session,
+
 Request - new instance per web request
 
 * what is AOP?
@@ -63,8 +82,11 @@ Transactions, Security, Logging.
 * Describe domain language used in describing aspects:
 
 Joinpoints: all possible places where we can add functionality
+
 Pointcut: subset of joinpoints where we chose to add functionality
+
 Advice: action that should happen before-after-around-afterthrowing on a pointcut
+
 Aspect = advice + pointcuts.
 
 * How to start spring context in a main method? 
