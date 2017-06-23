@@ -107,25 +107,83 @@ XML:
 
 * Describe JDBC without spring
 
+DriverManager > Connection > Statement > ResultSet
+
+Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test?user=admin&password=pass");
+
+from connection we get Statement
+
+executing query on the statement gives us result set
+
+we can iterate over result set( of rows) to get values of column in that row.
+
 * Describe how to perform joins in SQL(name some common joins)
+
+Joins merge 2 or more tables based on criteria:
+```
+select * from (User u join Role r on u.id = r.user_id);
+```
 
 * Describe transactions in SQL/JDBC
 
+Transactions are all or nothing operations on the database.
+We group actions that should all be performed as unit of work in a transaction.
+
+In SQL: we use begin and commit keywords to manage TX.
+
+In JDBC: connection.setAutocommit(false) and connection.commit() or connection.rollback() on SQLException
+
 * Describe 3 concurrency phenomenas that can be observed in the database
+
+Dirty read - TX_A sees data written by TX_B as it is being written and before it is committed.
+
+Fantom read - TX_A uses aggregate function (like sum()) twice and gets different results because TX_B added rows between reads.
+
+Non-repeatable read - TX_A reads a value of one row twice and gets different result because TX_B changed that value between reads.
 
 * Describe transaction isolation levels
 
+read uncommitted: dirty read, non-repeatable read, fantom read
+
+read committed: <s>dirty read</s>, non-repeatable read, fantom read
+
+repeatable read:  <s>dirty read, non-repeatable read</s>, fantom read
+
+serializable  <s>dirty read, non-repeatable read, fantom read</s>
+
 * Describe how we can model many-to-one relationship in the DB
+
+One table (A) has a foreign key reference to another table(B). Table A can have 0, 1 or many rows pointing to the same entry in table B.
 
 * Describe how to model many-to-many relationship in the DB
 
+Join table contains foreign keys to two tables with many-to-many relationships.
+
 * Describe Spring's approach to JDBC, name key interfaces/classes
+
+Spring removes code that is not essential, and leaves us only things we actually have to do. This is seen in JdbcTemplate.
+
+Key interfaces: 
+
+DataSource - like DriverManager but with connection pool.
+
+JdbcTemplate - used for performing CRUD operations and obtaining results.
+
+RowMapper - SAM interface for extracting data from each row of result set. applicable to reads only.
 
 * What is a repository?
 
+Repository is a design pattern that separates code using the objects from code responsible for persistence of these objects.
+Repository implementation knows how exactly the objects are stored. We can have one Repository interface and several implmentations each using different persistence mechanism.
+
 * What is a datasource? How is it different from drivermanager?
 
+DataSource represents one datasource in our program. Often a database. DataSource supports idea of **connection pool**, where connections are never closed but kept open to improve speed of connection to the database.
+
 * Describe steps to configure JDBC based repository in Spring
+
+1) configure Datasource: jdbc url, username and password, connection pool configuration
+2) create a Repository with a JdbcTemplate field by wiring datasource into JdbcTemplate.
 
 ## JPA
 
