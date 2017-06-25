@@ -189,51 +189,129 @@ DataSource represents one datasource in our program. Often a database. DataSourc
 
 * What is JPA?
 
+Java ORM framework specification.
+
 * What is Hibernate? compare Hibernate and JPA
+
+Hibernate is an implementation of JPA. Hibernate can be used directly without JPA, while JPA requires an implementation, like Hibernate.
 
 * Name key classes/interfaces in JPA
 
+EntityManagerFactory creates EntityManager. EntityManager is used to create queries and perform CRUD operations.
+
 * What are entities?
+
+Entities are nouns in the domain model. They represent an idea from real world that we represent as an object of a class.
 
 * Name entity states
 
-* What are value types? (Basic types like String and classes annotated with @Embeddable)
+new-managed-removed-detached
+
+* What are value types? 
+
+Basic types like String and classes annotated with @Embeddable. They don't require and identity, their identity is their value.
 
 * How can an entity store its collection of values types, what about one value type?
 
+An entity can store a collection of value types by using @ElementCollection annotation on that collection. Using @Embedded we can store one value type.
+
 * Name 2 main types of relationships between entities?
+
+Unidirectional and bidirectional
 
 * Name 4 main cardinalities.
 
+@OneToOne, @OneToMany, @ManyToOne, @ManyToMany
+
 * Name 7 possible combinations of cardinalities and directions. Why there are only 7 and not 8?
+
+Unidirectional @OneToOne, Unidirectional @OneToMany, Unidirectional @ManyToOne, Unidirectional @ManyToMany.
+
+Bidirectional @OneToOne, Bidirectional (@ManyToOne-@OneToMany), Bidirectional @ManyToMany.
+
+Bidirectional @ManyToOne and @OneToMany become two sides of the same relationship.
 
 * What is unique about unidirectional relations, who owns the relation?
 
+In unidirectional relationships, the entity with the @\*nyTo\*ny annotation owns the relationship.
+
 * What is unique about bidirectional relations? who owns the relations?
+
+In bidirectional relationships, in @ManyToOne relationships, many side always owns the relationship. In @ManyToMany and @OneToOne, we have to decide the owner by designating the inverse side. Inverse side of the relationship should have 'mappedBy' attribute pointing to the owning side.
 
 * How do we mark an owning side in a bidirectional relation? What is inverse side?
 
+Inverse side is the other, non-owning, side of the relationship. Annotation on the inverse side has a 'mappedBy' attribute.
+
 * What is eager/lazy loading?
+
+Lazy loading means that referenced objects are fetched as they are needed, if the session is open.
+Eager loading means that referenced objects are fetched together with the owner. Egerly loaded objects can be used when the session is closed.
 
 * What is JPQL?
 
+SQL like, object oriented query language.
+
 * name 2 main types of queries
+
+Dynamic and static.
+
+Dynamic: em.createQuery("SELECT c FROM Customer c WHERE c.name LIKE :custName"); 
+
+Static queries use @NamedQuery defined on entity, and em.createNamedQuery("namedQueryName");
 
 * What is @NamedQuery, where do we place it?
 
+@NamedQuery defines a static query. We usually place it on the entity it belongs to.
+```
+@NamedQuery(
+ name="findCustomersByName",
+ query="SELECT c FROM Customer c WHERE c.name LIKE :name"
+)
+```
+
 * What is native query?
+
+A query using SQL. `em.createNativeQuery(“select * from item”, Item.class);`
 
 * name 2 types of parameters in JPQL, what simbols each one uses?
 
+Named and positional. `:name` is a named parameter and `?1` is a positional one.
+
 * What is pagination?
+
+Pagination allows us to controll what subset of the result is returned:
+
+```
+Query query = em.createQuery("select i from Item i");
+query.setFirstResult(40).setMaxResults(10);
+```
 
 * What is JOIN FETCH?
 
+JOIN FETCH allows us to fetch relationships eagerly as the query is run.
+
 * What nuances we need to know about JOIN FETCH? (you run a query without success, despite entities being present in the DB?)
+
+By default, JOIN FETCH will work as an inner join, that is it will only return entities that have the relationship. If some entity doesn't have a relationship (has zero relationship), it will not be fetched.
+
+```
+SELECT e FROM Employee e JOIN FETCH e.address
+```
+The query above will not return employees without address.
+To force the fetch of all of the employees, even the ones without the address, we need to use LEFT JOIN FETCH:
+
+```
+SELECT e FROM Employee e LEFT JOIN FETCH e.address
+```
 
 * What is spring data JPA?
 
-* How to configure JPA in Spring without Spring Data JPA: describe all needed beans.
+Spring data JPA is a project of Spring framework, that automatically implements JPA repositories based on convention. We have to provide an interface and Spring data JPA will implement a generated repository and wire it anywhere it is needed.
+
+* How to configure JPA in Spring without Spring Data JPA: describe all needed beans and steps.
+
+
 
 ## Transactions
 
