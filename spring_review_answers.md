@@ -388,8 +388,34 @@ If that calling method already was in transaction, that tx will be suspended and
 
 If the calling method was not in tx, new one will be created around this method.
 
+**Example**
+Lets say we have a service method `performPurchase()` that removes an item from inventory, and records a sale.
+SaleRepository and InventoryRepository have default propagation level (REQUIRED).
+
+If `performPurchase` is not marked as @Transactional, then we don't have all-or-nothing, unit of work behavior.
+We need to mark `performPurchase` as @Transactional.
+
+If we want to keep track of all attempted purchases, even if they fail, we need to define another method: `recordSaleAttempt`, in some repository and mark it as REQUIRES_NEW. This will force it to be independent of the `performPurchase` transaction, and even if `performPurchase` method is rolled back, `recordSaleAttempt` will commit.
+
 
 * Explain, and give examples of, REQUIRES_NEW, REQUIRED, and SUPPORTS propagation levels.
+
+REQUIRES_NEW:
+
+if calling method already is in tx, we suspend it and start a new tx, around current method.
+if calling method is not in tx, we create and start a new tx, around current method.
+
+REQUIRED:
+
+if calling method is in tx, we join that transaction
+if calling method is not it tx, we create new tx. 
+This is default behavior, and all repository method behave this way.
+
+SUPPORTS:
+
+joins a tx if it is present in the calling method,
+runs without tx if it is not present.
+
 
 * What is readOnly property of a Tx, what about timeout property?
 
