@@ -311,27 +311,83 @@ Spring data JPA is a project of Spring framework, that automatically implements 
 
 * How to configure JPA in Spring without Spring Data JPA: describe all needed beans and steps.
 
+1) configure DataSource
 
+2) configure JpaVendorAdapter
+
+3) configure EntityManager and give it DataSource and JpaVendorAdapter
+
+4) configure JpaTransactionManager by giving it EntityManager
+
+5) enable JPA annotations in repositories by adding PersistenceAnnotationBeanPostProcessor bean to container.
 
 ## Transactions
 
 * What is a transaction?
 
+Set of actions that either all succeed or all fail.
+
 * How does spring handle transactions?
+
+Spring uses AOP to wrap all beans with tx methods. AOP begins a tx, and decides to commit or rollback based on presense of RuntimeException.
 
 * What 2 main types of transaction do we have?
 
+We have local and distributed txs. Local tx uses one resource, distributed uses 2 or more resources.
+
 * What is JTA transaction manager? When do we need it? Name 2 JTA transaction managers.
+
+JTA tx manager is tx manager capable of managing distributed transactions. Bitronix and atomicos are 2 examples.
 
 * 2 main ways to manage transactions?
 
-* Describe Java exception hierarchy, what are checkec/unchecked exceptions?
+Declarative and programmatic: declarative - we tell container where tx begins and ends, programmatic - we write code that performs tx ourselves.
+
+* Describe Java exception hierarchy, what are checked/unchecked exceptions?
+
+Checked exception is the one where JVM is checking for exception handling code (catch block).
+Unchecked exception is the one where JVM does not check for exception handling code.
+
+Checked can be considered recoverable, that is JVM can fix it by running code in catch block, whereas unchecked is unrecoverable.
+
+Checked exceptions require try-catch block, whereas unchecked don't. We still can catch unchecked exceptions if wish to do so.
+
+```
+Throwable interface
+    |          	 |
+  Error   	 Exception
+                 |       |
+    RuntimeException    ...
+
+
+```
+Error and RuntimeExceptions are unchecked, we don't have to provide try-catch block.
+
+Any Exception, Exception subclass, that is not RuntimeException are checked, require try-catch block.
+
 
 * In spring declarative transactions, when is transaction marked for rollback?
 
+If during the execution of tx, a RuntimeException was thrown.
+
 * How to specify Tx isolation level in Spring? Why do we specify it? Give an example.
 
+`@Transactional(isolation=Isolation.SERIALIZABLE)` placed on tx method or a class will specify serializable isolation level.
+We specify it to define the consistency of data that this transaction can see, with regards to other transactions running simultaneously.
+
+If we are calculating a report that runs a summary function twice, we can be succeptible to phantom reads. To make sure we don't have phantom reads we set isolation to serializable, as this is the only isolation level guaranteeing that.
+
 * How to specify Tx propagation level in spring, why do we specify it? give an example.
+
+`@Transactional(propagation=Propagation.REQUIRES_NEW)` placed on a method or a class will specify this propagation level.
+We can specify it to define what happens when some other method is calling this method.
+
+In this case:
+
+If that calling method already was in transaction, that tx will be suspended and new one will be created around this method.
+
+If the calling method was not in tx, new one will be created around this method.
+
 
 * Explain, and give examples of, REQUIRES_NEW, REQUIRED, and SUPPORTS propagation levels.
 
