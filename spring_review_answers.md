@@ -388,16 +388,6 @@ If that calling method already was in transaction, that tx will be suspended and
 
 If the calling method was not in tx, new one will be created around this method.
 
-**Example**
-Lets say we have a service method `performPurchase()` that removes an item from inventory, and records a sale.
-SaleRepository and InventoryRepository have default propagation level (REQUIRED).
-
-If `performPurchase` is not marked as @Transactional, then we don't have all-or-nothing, unit of work behavior.
-We need to mark `performPurchase` as @Transactional.
-
-If we want to keep track of all attempted purchases, even if they fail, we need to define another method: `recordSaleAttempt`, in some repository and mark it as REQUIRES_NEW. This will force it to be independent of the `performPurchase` transaction, and even if `performPurchase` method is rolled back, `recordSaleAttempt` will commit.
-
-
 * Explain, and give examples of, REQUIRES_NEW, REQUIRED, and SUPPORTS propagation levels.
 
 REQUIRES_NEW:
@@ -419,15 +409,36 @@ runs without tx if it is not present.
 
 * What is readOnly property of a Tx, what about timeout property?
 
+-readOnly when set on a tx that actually only reads data from the database, can allow database to optimize concurrency.
+
+-timeout limits how long a tx can run, if a tx exceeds the timeout limit, an exception is thrown.
+
 * What is default Isolation and propagation level in spring transaction?
+
+Default isolation is determined by the settings in the DB engine. Propagation defaults to REQUIRED.
 
 * Present a demo project showcasing Spring transaction details.
 
+**Example**
+Lets say we have a service method `performPurchase()` that removes an item from inventory, and records a sale.
+SaleRepository and InventoryRepository have default propagation level (REQUIRED).
+
+If `performPurchase` is not marked as @Transactional, then we don't have all-or-nothing, unit of work behavior.
+We need to mark `performPurchase` as @Transactional.
+
+If we want to keep track of all attempted purchases, even if they fail, we need to define another method: `recordSaleAttempt`, in some repository and mark it as REQUIRES_NEW. This will force it to be independent of the `performPurchase` transaction, and even if `performPurchase` method is rolled back, `recordSaleAttempt` will commit.
+
 * How to configure beans needed for TX support in spring?
+
+
 
 * What role does repository play in spring transactions?
 
+Repository methods are run in a transaction, that is tx is required. Default propagation (REQUIRED) allows for a TX to be created when needed, or joining the transaction started in @Service methods marked as @Transactional.
+
 * What role does service play in spring transactions? Give an example.
+
+@Service methods start transactions when needed. If a repository method is called from a non-transactional service method, it will create a transaction due to REQUIRED propagation.
 
 
 ## MVC
