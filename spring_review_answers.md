@@ -445,31 +445,60 @@ Repository methods are run in a transaction, that is tx is required. Default pro
 
 * What is servlet?
 
+Is a small programm running in the web container
+
 * What 2 main abstractions are used with servlet?
+
+HttpRequest and HttpResponse
 
 * What is servlet container? One example of.
 
+Servlet container is program that listens to incoming requests and delegates them to appropriate servlets. Tomcat.
+
 * What is web.xml?
+
+web.xml is a web deployment descriptor. It provides information about the web app to the tomcat, like mapping between url and servlet responsible for handling that url.
 
 * What is JSP?
 
+Java Server Pages. HTML like syntax for designing web templates. It gets compiled into servlet by the container.
+
 * What is dispatch servlet?
+
+Dispatch servlet is a servlet that knows how to route the request.
 
 * Who creates dispatch servlet?
 
+In Spring, Spring MVC framework creates dispatch servlet.
+
 * What is AbstractAnnotationConfigDispatcherServletInitializer?
+
+AbstractAnnotationConfigDispatcherServletInitializer is an abstract implementation of WebApplicationInitializer.
+Web container uses it to start our web application.
 
 * What 3 main actions does AbstractAnnotationConfigDispatcherServletInitializer perform?
 
+starts web context, starts core context, configures the dispatch servlet.
+
 * How does container find AbstractAnnotationConfigDispatcherServletInitializer?
 
-* What 2 main contexts are need for SpringMVC?
+Tomcat scans to find any implementation of ServletContainerInitializer, like AbstractAnnotationConfigDispatcherServletInitializer.
+
+* What 2 main contexts are needed for SpringMVC?
+
+root and web. Root contains entites, services, persistence and integration beans. Web contains controllers, views, view resolver and other web related beans.
 
 * What is the relationship between 2 main contexts in SpringMVC?
 
+Web context can access all beans from core context, core context cannot access any beans in the web context. Ideally, 
+
 * What functionality logically belongs to the root(core) context? Name a few bean types that live there.
 
+Application business logic belongs to the root context. Repositories, services, transaction managers and others live in root context.
+
 * What functionality logically belongs to the web context? Name a few bean types that live there.
+
+All web related functionality belongs to the web context. Controllers, view resolvers, etc live in web context.
 
 * How to configure web context? 
 
@@ -479,27 +508,57 @@ Repository methods are run in a transaction, that is tx is required. Default pro
 	public class WebConfig extends WebMvcConfigurerAdapter {}
 	
 
-* What is view resolver? 
+* What is view resolver?
+
+View resolver is a bean that takes ui.Model and a view name, and using templating engine renders a view.
 
 * What is servlet filter? How is it similar to AOP?
 
+Filters have access to request and response objects and can be invoked before and/or after the servlet. They can be used similarly to AOP beans.
+
 * Describe request flow through SpringMVC framework, in as much details as possible, draw a diagram.
+
+Dispatch servlet recieves request and routes it to the appropriate method in the appropriate controller.
+
+Controller performs validation and invokes service method(s).
+
+Service method performs business logic, like calling remote service or using repositories and entities.
+
+Controller places result of service call into ui.Model and returns appropriate view name.
+
+View resolver uses view name and ui.Model to render appropriate view and returns that view.
 
 * What is a controller?
 
+Controller is a class containing methods responsible for handling requests.
+
 * How to configure a controller? What annotation can we have in a controller?
+
+Controller is just a class with @Controller. Just like any other bean, it should be picked up by the componenet scan to work.
 
 * What is ui.model?
 
+ui.Model is a hashtable like datastructure used for holding objects needed for the view to render.
+
 * What is a view template?
+
+view template is an incomplete view that needs data to become complete.
 
 * What is a templating engine.
 
+Templating engine is a mechanism that takes templates and ui.model and returns complete views.
+
 * How is ui.model used with templating engines?
+
+ui.Model stores data that templating engine needs to render the views.
 
 * What 2 main http methods do you know? 
 
-* What is the difference between 2 main http method?
+GET and POST
+
+* What is the difference between 2 main http methods?
+
+GET is used to read data, and POST is used for manipulating data, often to create a resource.
 
 ## REST
 
