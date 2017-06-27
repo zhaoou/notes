@@ -445,7 +445,7 @@ Repository methods are run in a transaction, that is tx is required. Default pro
 
 * What is servlet?
 
-Is a small programm running in the web container
+Is a small program running in a web container
 
 * What 2 main abstractions are used with servlet?
 
@@ -453,7 +453,7 @@ HttpRequest and HttpResponse
 
 * What is servlet container? One example of.
 
-Servlet container is program that listens to incoming requests and delegates them to appropriate servlets. Tomcat.
+Servlet container is a program that listens to incoming requests and delegates them to the appropriate servlets. Tomcat.
 
 * What is web.xml?
 
@@ -463,9 +463,9 @@ web.xml is a web deployment descriptor. It provides information about the web ap
 
 Java Server Pages. HTML like syntax for designing web templates. It gets compiled into servlet by the container.
 
-* What is dispatch servlet?
+* What is dispatcher servlet?
 
-Dispatch servlet is a servlet that knows how to route the request.
+Dispatcher servlet is a servlet that knows how to route the request.
 
 * Who creates dispatch servlet?
 
