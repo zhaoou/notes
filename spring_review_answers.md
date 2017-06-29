@@ -624,44 +624,68 @@ POSTing a resource means we want to create this resource on that endpoint.
 
 * What 2 main approaches does spring security use to secure our applications?
 
+Servlet filter(Web security) and AOP(method security)
+
 * What is an authority?
+
+A user role or fine-grain definitions of what user can/cannot do.
 
 * What is a cookie?
 
+A cookie is a key value pair that we can store in the browser.
+
 * What is a session?
 
-* What 2 main interfaces help spring security understand a user based on the username? 
+A session is an object that is associated with a particular user using cookie. Only session id cookie is stored in the browser, session lives in the application container. We can use session as a Map to store random key value pairs as needed.
+
+* What 2 main interfaces help spring security understand a user based on the username?
+
+UserDetailsService and UserDetails.
+
+UserDetailsService returns UserDetails from username.
+
+UserDetails returns authorities that user has.
 
 * How can we implement these 2 main interfaces in our application?
 
+A convinient approach is to have UserService implement UserDetailsService, and User entity implement UserDetails.
+
 * What is a password encoder?
+
+Password encoder is a bean that performs initial hashing of the password, and helps use authenticate a user later, based on provided password.
 
 * Describe main url routes used by spring security
 
+Default login page is at /login, while default logout page is at /logout.
+
 * What is a success/failure handler?
 
-* How to utilize spring security in views? 
+Is a SAM interface that tells spring security what should happen on authentication succes/failure.
+
+* How to utilize spring security in views?
+
+We can conditionally render parts of the views based on authority of Principal(currently authenticated user). We can also render his or her granted authorities.
 
 * Explain each line of the following code:
-
+```
 	@Configuration
-	@EnableWebSecurity
+	@EnableWebSecurity  // turns on web security
 	public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
-		@Autowired
+		@Autowired // provides UserDetailsService implementation.
 		UserDetailsService userService;
 
-		@Bean
+		@Bean // declares PasswordEncoder bean
 		public PasswordEncoder passwordEncoder() {
 			return new BCryptPasswordEncoder();
 		}
 
-		@Autowired
+		@Autowired  // wires UserDetailsService and PasswordEncoder into spring security
 		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 			auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
 		}
 
-		@Override
+		@Override // allows unrestricted access to web assets.
 		public void configure(WebSecurity web) throws Exception {
 			web.ignoring().antMatchers("/assets/**");
 		}
@@ -671,35 +695,41 @@ POSTing a resource means we want to create this resource on that endpoint.
 		protected void configure(HttpSecurity http) throws Exception {
 			http
 				.authorizeRequests()
-				.antMatchers("/admin/**").hasRole("ADMIN") // order is important
-				.antMatchers("/**").hasAnyRole("ADMIN", "USER")
+				.antMatchers("/admin/**").hasRole("ADMIN") // only admin can access this urls
+				.antMatchers("/**").hasAnyRole("ADMIN", "USER") // only admins and user can access other urls
 			.and()
-				.formLogin()
-				.loginPage("/login")
-				.permitAll()
+				.formLogin()	// use html form login
+				.loginPage("/login") // located here
+				.permitAll()	// and allow anybody to access this form
 			.successHandler(
-		(request, response, authentication) -> response.sendRedirect("/main"))
+		(request, response, authentication) -> response.sendRedirect("/main")) // on success redirect to /main
 			.failureHandler(
-		(request, response, authentication) -> response.sendRedirect("/login"))
+		(request, response, authentication) -> response.sendRedirect("/login")) // else try again
 			.and()
-				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/").deleteCookies("JSESSIONID")
-				.invalidateHttpSession(true)
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // use /logout to logout
+				.logoutSuccessUrl("/").deleteCookies("JSESSIONID") // and delete sesssio id cookie
+				.invalidateHttpSession(true) // destroy session
 			.and()
-				.csrf();
+				.csrf(); // enable default csrf tokens on all forms.
 		}
 	}
 
+```
 * What is method security?
+
+Method security allows us to limit who can call bean methods in the core container.
 
 * What does this do:
 
+```
 	@Secured({"ROLE_ADMIN"})
-	
-* Explain each line of this code:
+```
+Secures any method. Specifically, will only allow admin users to call it.
 
-	@Configuration
-	@EnableGlobalMethodSecurity(securedEnabled=true)
+* Explain each line of this code:
+```
+	@Configuration	// @Configuration is a @Component, and will be picked up by the component scan.
+	@EnableGlobalMethodSecurity(securedEnabled=true) // turns AOP proxiing of beans with @Secured.
 	public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {}
-	
+```	
 * Now read this in Kevin Malone's voice: "Nice"
