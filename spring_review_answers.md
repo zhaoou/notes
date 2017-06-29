@@ -564,30 +564,61 @@ GET is used to read data, and POST is used for manipulating data, often to creat
 
 * What is REST?
 
+Representative State Transfer. An architectural approach for transfering application state between applications.
+
 * What do we mean by 'state'
+
+State is set of values of all entities in the system
 
 * Who are the main users of the REST?
 
+Other applications.
+
 * what is http request header?
+
+A set of key value pairs attached to a http request.
 
 * What is content negotiation?
 
+Content negotiation is a process used by the server to determine what MIME type to send back to the client. Server can use 'Accept' request header, or file extension requested, to negotiate content.
+
 * What is message conversion?
+
+Is process where Spring converts objects (or collections of objects) to desired representation, using message converter.
+Likewise, we can take an object representation and convert it into object or collection of objects.
 
 * What role does view resolver play in message conversion in REST?
 
+View resolver is not used in message conversion, controller methods do not return object(s) directly, and do not return view name.
+
 * What 2 main roles exist in REST web service?
+
+Client and server. Client consumes web service provided by the server.
 
 * What does it mean to be an endpoint?
 
+It means that you are a server responding to GET and POST requests and process them accordingly.
+
 * What does it mean to be an endpoint consumer?
+
+You have a RestTemplate getting and posting resources to an endpoint. No server is needed.
 
 * What is a REST template?
 
+RestTemplate is a convinience class that takes endpoint URL and performs REST operations.
+
 * How to use REST template to GET resource?
+
+```
+Contact[] response = new RestTemplate().getForObject(getAllUrl, Contact[].class);
+```
 
 * How to use REST template to POST resource? What does it mean to post a resource?
 
+```
+new RestTemplate().postForObject(postUrl, c, Contact.class);
+```
+POSTing a resource means we want to create this resource on that endpoint.
 
 ## Security
 
