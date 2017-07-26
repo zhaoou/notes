@@ -84,6 +84,17 @@ All other goodies from FP are here:
     words.stream().filter(s -> s.startsWith("A")).findAny();
     // any word that begins with 'A'.
 
+A slightly more complex operation is `flatMap()`. It does 2 things: 
+
+* maps a function that returns a stream (e -> stream) over each element of the original stream, and 
+* flattens the resulting stream of streams into a simple stream.
+
+```
+Stream.of("a b c", "d e f")
+.flatMap( a -> Stream.of(a.split("\\s")) )
+.forEach(System.out::println);
+```
+
 We can also sort the elements of a stream:
 
     words.stream().sorted(
