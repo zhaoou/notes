@@ -1,5 +1,31 @@
 # Streams in Java 8
 
+## Lambdas
+
+In Java, lambdas can only be used as an instance of a Functional interface.
+
+There are 6 important functional interfaces in Java:
+
+#### Predicate\<T>- takes an instance of T and return boolean
+
+Predicates can be combined by using `.and(Predicate<T> p1).or(Predicate<T> p2).negate()` methods.
+
+#### Consumer\<T>- takes an instance of T and returns nothing
+
+Can be combined by using `.andThen(Consumer<T> c)`.
+
+#### Supplier\<T>- takes nothing and return an instance of T
+
+#### Function\<T,R>- takes instance of T and returns an instance of R, which may or may not be the same type as T
+
+Can be combined: `.andThen(Function<R,Q> func)`
+
+#### UnaryOperator\<T>- takes one instance of T and returns one instance of T
+
+#### BinaryOperator\<T>- takes two instances of T and returns one
+
+
+## Using lambdas in streams
 
 Streams are cool.
 This new feature allows us to use lambdas to operate on data, similar to functional composition in functional programming. I have been using them for several months now, and learned to love it. Combine streams, spring data, spring boot and you can enjoy development again!
