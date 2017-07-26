@@ -6,7 +6,7 @@ In Java, lambdas can only be used as an instance of a Functional interface.
 
 There are 6 important functional interfaces in Java:
 
-#### 1) Predicate\<T>- takes an instance of T and return boolean
+#### 1) Predicate\<T>- takes an instance of T and returns boolean
 
 Predicates can be combined by using `.and(Predicate<T> p1).or(Predicate<T> p2).negate()` methods.
 
@@ -14,7 +14,7 @@ Predicates can be combined by using `.and(Predicate<T> p1).or(Predicate<T> p2).n
 
 Can be combined by using `.andThen(Consumer<T> c)`.
 
-#### 3) Supplier\<T>- takes nothing and return an instance of T
+#### 3) Supplier\<T>- takes nothing and returns an instance of T
 
 #### 4) Function\<T,R>- takes instance of T and returns an instance of R, which may or may not be the same type as T
 
@@ -24,6 +24,17 @@ Can be combined: `.andThen(Function<R,Q> func)`
 
 #### 6) BinaryOperator\<T>- takes two instances of T and returns one
 
+
+### Lambda variables
+
+Inside of the lambda expression:
+
+* We **can use effectively final local variables**.
+
+* We **can modify instance variables**.
+
+**Free vs. Bound variables aside: `f(x) = x + y`, `x` is bound(to argument x) and `y` is free.**
+So in lambda, free variables are saved for future time, aka closure.
 
 ## Using lambdas in streams
 
