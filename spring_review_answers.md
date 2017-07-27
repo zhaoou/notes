@@ -282,9 +282,15 @@ Named and positional. `:name` is a named parameter and `?1` is a positional one.
 
 Pagination allows us to controll what subset of the result is returned:
 
+Pure JPA way:
 ```
 Query query = em.createQuery("select i from Item i");
 query.setFirstResult(40).setMaxResults(10);
+```
+OR using Spring's Page object, which acts as a wrapper.
+```
+PagingAndSortingRepository<User, Long> repository = // … get access to a bean
+Page<User> users = repository.findAll(new PageRequest(1, 20));
 ```
 
 * What is JOIN FETCH?
