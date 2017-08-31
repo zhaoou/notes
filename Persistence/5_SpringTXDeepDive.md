@@ -3,6 +3,15 @@
 
 Transactions allow us to fine tune concurrent access to our data sources.
 
+## VID (Very Important Definitions)
+
+* Transactional resource - something that can participate in a transaction, something supporting transaction. (Message Queue, Database, etc.)
+
+* PlatformTransactionManager - spring bean that represents one transactional resource, and manages transactions on that resource.
+PlatformTransactionManager needs reference to the resource it is managing transactions for.
+
+
+
 ### Understanding transactions in Spring
 **Transactions are broadly classified into 2 main categories:**
 
