@@ -132,6 +132,21 @@ public Error handleUserNotFound(UserNotFoundEx ex){
 }
 ```
 
+### Setting headers in ResponseEntity
+
+It is common to return a 'Location' header after creating resource, to let clients now where to find new resource.
+
+In that situation, we can use ResponseEntity to return that header.
+
+```
+User u = repo.saveAndFlush(user);
+HttpHeaders headers = new HttpHeaders();
+headers.setLocation(URI.create("/users/" + u.getId());
+return new ResponseEntity<User>(user, 
+				headers,
+				HttpStatus.CREATED );
+```
+
 
 ## Below we cover REST consumption
 
