@@ -8,41 +8,7 @@ All we have to do is configure ViewResolver to return JSON for our objects inste
 
 There are 2 main ways we can configure Spring to do that:
 
-### Content Negotiation & Message Conversion
-(I prefer a separate REST controller using messsage conversion)
-
-#### Content Negotiation
-Requires ContentNegotiatingViewResolver .
-
-ContentNegotiatingViewResolver:
-
-* determines requested content type from file extension first, and *Accept* header second.
-* resolves the view by picking a first match from a list of candidate views.
-
-We can influence ContentNegotiatingViewResolver by giving it a ContentNegotiationManager.
-
-ContentNegotiationManager can:
-
-* specify default content type
-* ignore *Accept* header
-
-ContentNegotiationManager is configured in WebMvcConfigurerAdapter:
-```
-@Override
-public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
- configurer.defaultContentType(MediaType.APPLICATION_JSON);
-}
-```
-and given to ContentNegotiatingViewResolver :
-```
-@Bean
-public ViewResolver cnViewResolver(ContentNegotiationManager cnm) {
- ContentNegotiatingViewResolver cnvr = new ContentNegotiatingViewResolver();
- cnvr.setContentNegotiationManager(cnm);
- return cnvr;
-}
-```
-#### Message Conversion
+### Message Conversion
 
 * Spring can convert objects to and from some desired representations using Message Converters.
 * There is a number of them wired by default; we can declare the additional ones.
