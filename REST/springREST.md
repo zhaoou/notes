@@ -110,6 +110,27 @@ __________________________________________________
 
 We can also  use @RestController on the controller. This is equivalent to having @ResponseBody on all of the methods in that controller.
 
+Presence of @RestController doesn't remove the need for @RequestBody, where we need to convert JSON to object.
+
+### Error handling in Spring REST
+
+Common requirement is to handle errors. We need to:
+
+1) Define Exceptions (extending RuntimeException)
+
+2) Throw our exceptions from the controller
+
+3) Define @ExceptionHandler methods in the controller, or in @ControllerAdvice annotated class.
+
+For example:
+
+```
+@ExceptionHandler(UserNotFoundEx.class)
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public Error handleUserNotFound(UserNotFoundEx ex){
+  return new Error("user not found");
+}
+```
 
 
 ## Below we cover REST consumption
