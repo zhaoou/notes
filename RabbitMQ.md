@@ -10,8 +10,12 @@ In AMQP, producers publish message to an exchange, that can be bound to one or m
     Producer ---> Exchange ----> Queue ----> Consumer
                           __
                             \
-                             Queue is bound to Exchange using Routing Key
+                             Queue is bound to Exchange using Binding Key
                               
+
+When a message is sent to exchange, it has `routing key`.
+
+##### Routing key is evaluated agains Binding keys, to know where to route this message, by exchange.
 
 There are 4 main exchange types: *Direct, Topic, Headers, and Fanout*.
 
