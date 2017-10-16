@@ -15,7 +15,7 @@ In AMQP, producers publish message to an exchange, that can be bound to one or m
 
 When a message is sent to exchange, it has `routing key`.
 
-##### Routing key is evaluated agains Binding keys, to know where to route this message, by exchange.
+#### Routing key is evaluated agains Binding keys, to know where to route this message, by exchange.
 
 There are 4 main exchange types: *Direct, Topic, Headers, and Fanout*.
 
