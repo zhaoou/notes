@@ -25,3 +25,6 @@ Controller methods can become busy if we try to perform everything in them. Spri
 
 @ModelAttribute, if used on a method in the @ControllerAdvice class, is responsible for populating the model attribute with commonly needed data or entities. These methods are invoked before @RequestMapping methods, so you can expect attributes to be present in the model. These methods can, like @RequestMappping methods, access request parameters and model, in fact that is one of the ways they add attributes to the model.
 Like @ExceptionHandler, @ModelAttribute can be inside of the @ControllerAdvice, being invoked on all request in all controllers, or it can be inside of the @Controller, being invoked only before the request in that controller.
+
+@SessionAttributes("cart")
+Placed on @Controller class forces objects with this name that are added to model to also be stored in session. Think shopping cart. This object(s) can also be retrieved from session in controller method by adding `@ModelAttribute ShoppingCart cart` to parameter list. This is the simplest way to maintain state between requests.
