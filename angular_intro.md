@@ -9,13 +9,17 @@
 #### To do that we need to connect V and C on high level, using angular app
 
 In JS: create an app in global scope
+
 In HTML: connect app with html using `ng-app`
+
 Angular does: finds an app in JS and `ng-app` in html and connects them.
 
 #### We can now add low level functionality to this basic setup: html (view) and JS object (angular app).
 
 In JS: add controller object to the app and give it a name
+
 HTML: inside of the `ng-app` element add and element and bind it to controller using `ng-controller`.
+
 Angular does: associates this controller with this element
 
 #### Angular uses scope object to bind controller and view
