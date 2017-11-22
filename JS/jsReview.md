@@ -97,5 +97,14 @@ var shoes = {
   changeColor: function(newColor){
     shoes.color = newColor;
   }
-}
+};
+
+shoes.lace -> ["left", "right"] // dot notation to access property
+shoes["color"] -> "brown" // array notation to access property
+shoes.changeColor("red"); // method changes color to red
 ```
+
+* typeof
+
+> returns a type of the variable
+``` typeof false -> boolean```
