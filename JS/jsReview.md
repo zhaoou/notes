@@ -35,3 +35,37 @@ else{}
 * Falsy values: converted to false in boolean context
 
 > ```false, null, undefined, 0, "", NaN. ```
+
+* Loops:
+
+```
+// while:
+var i = 0;
+while(i < 10) { console.log(i++); }
+
+// for:
+for (var j = 0; j < 5; j++) { console.log(j); }
+```
+
+* Functions:
+```
+function(){} -> undefined // by default returns undefined
+
+function(name){ return name; } // identity function
+```
+
+* Scope:
+
+1) Global - var defined in global scope is accessible everywhere
+
+2) Function - var defined in a function is accessible in that function only
+
+Interpreter searches up the scope tree until it finds a variable or fails to find it and throws an exception:
+```
+{ 1
+  { 2 }
+  { 3 }
+}
+```
+From block 2 we can see variables defined in 2 and 1, but not 3.
+Variables defined in both global and function scopes: function scoped variable will 'shadow' the globally defined variable.
