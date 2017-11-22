@@ -52,6 +52,14 @@ for (var j = 0; j < 5; j++) { console.log(j); }
 function(){} -> undefined // by default returns undefined
 
 function(name){ return name; } // identity function
+
+var identity = function identify(name){ return name; } // storing function in a variable
+
+identity(true); -> true
+identity(5); -> 5
+
+identify(false); -> ReferenceError // once stored in a variable, we cannot call named function directly
+
 ```
 
 * Scope:
