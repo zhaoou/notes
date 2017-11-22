@@ -70,3 +70,32 @@ Interpreter searches up the scope tree until it finds a variable or fails to fin
 From block 2 we can see variables defined in 2 and 1, but not 3.
 
 Variables defined in both global and function scopes: function scoped variable will 'shadow' the globally defined variable.
+
+* Arrays
+```
+var numbers = [1, 2, 3];
+
+numbers.length -> 3
+numbers.push(9) -> [1, 2, 3, 9];
+numbers.pop() -> 9 
+numbers.splice(1, 1, 7, 8) -> [1, 7, 8, 3] // from index 1, remove 1 element, and insert 7 and 8
+numbers.splice(-2, 0, 55, 66) -> [1, 7, 55, 66, 8, 3] // after second element from the end, remove 0 elements, insert 55, 66
+numbers.forEach((element, index, array) => { array[index] += 100; } ); // add 100 to each element in the array
+numbers.forEach((el, i, arr) => { arr[i] += el;}); // double each element
+
+var mixed = [1, "a", null, [] ];
+mixed[0] -> 1
+mixed[3] -> []
+```
+
+* Objects
+```
+var shoes = {
+  color: "brown",
+  size: 13,
+  lace: ["left", "right"],
+  changeColor: function(newColor){
+    shoes.color = newColor;
+  }
+}
+```
