@@ -68,4 +68,5 @@ Interpreter searches up the scope tree until it finds a variable or fails to fin
 }
 ```
 From block 2 we can see variables defined in 2 and 1, but not 3.
+
 Variables defined in both global and function scopes: function scoped variable will 'shadow' the globally defined variable.
