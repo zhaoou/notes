@@ -1,15 +1,6 @@
-#### Objects and data structures
+#### Basic data types
 
-#### Functional programming in JS
+* null - is a special location on the heap, variable is assigned this special value.
 
-#### Event queue and handlers
+* undefined - a variable that is declared but not assigned anything, even null.
 
-#### DOM manipulation with plain JS
-
-#### DOM manipulation with jQuery
-
-#### AJAX with plain JS
-
-#### AJAX with jQuery
-
-#### D3
