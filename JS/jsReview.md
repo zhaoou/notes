@@ -123,7 +123,7 @@ global scope -> window object
 
 on an object -> the object on which it is called
 
-in a constructor -> to the newly created object
+in a constructor -> on the newly created object
 
 when explicitly setting `this` using `bind, apply, or call` -> this will refer to that object
 
