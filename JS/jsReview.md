@@ -116,3 +116,22 @@ shoes.changeColor("red"); // method changes color to red
 
 > returns a type of the variable
 ``` typeof false -> boolean```
+
+* `this` can refers to different things depending on situation.
+
+global scope -> window object
+
+on an object -> the object on which it is called
+
+in a constructor -> to the newly created object
+
+when explicitly setting `this` using `bind, apply, or call` -> this will refer to that object
+
+*  bind vs. apply vs. call
+
+bind - permanently binds returned function to an object: ```var boundFunction = logThis.bind({name: "Stepan"});```
+
+apply - takes object reference and an optional array of arguments: ```logThis.apply({name:"hi"}, []);```
+
+call - takes object reference and optional arguments to the function being called: ```logThis.call({name:"hi"});```
+
