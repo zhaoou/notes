@@ -131,7 +131,7 @@ when explicitly setting `this` using `bind, apply, or call` -> this will refer t
 
 bind - permanently binds returned function to an object: ```var boundFunction = logThis.bind({name: "Stepan"});```
 
-apply - takes object reference and an optional array of arguments: ```logThis.apply({name:"hi"}, []);```
+apply - invokes using object reference and an optional array of arguments: ```logThis.apply({name:"hi"}, []);```
 
-call - takes object reference and optional arguments to the function being called: ```logThis.call({name:"hi"});```
+call - invokes using object reference and optional arguments to the function being called: ```logThis.call({name:"hi"});```
 
