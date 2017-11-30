@@ -57,6 +57,10 @@ class App extends Component {
              </div>); } }
 ```
 
+Props - Functional Components - Controlled Components
+- props: pass data into components
+- Controlled components: form hooked up to state
+
 
 Getting Started
 - create-react-app contacts
