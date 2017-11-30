@@ -1,3 +1,5 @@
+#### BASICS
+
 React element 
 - JS object, not a DOM node
 - React.createElement(elementType, props, elementContent); // returns one root element
@@ -57,12 +59,21 @@ class App extends Component {
              </div>); } }
 ```
 
-Props - Functional Components - Controlled Components
-- props: pass data into components
-- Controlled components: form hooked up to state
 
 
 Getting Started
 - create-react-app contacts
 - cd contacts
 - npm start
+
+
+#### STATE
+
+- state resides in in the root Component
+- state is passed to components that need it using props
+
+
+Props - Functional Components - Controlled Components
+- props: pass data into components
+- Controlled components: form hooked up to state
+- 
