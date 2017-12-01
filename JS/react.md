@@ -27,7 +27,7 @@ React component
 - extends React.Component
 - still need to be rendered using ReactDOM.render
 - maintain and manage * state *
-- ```class ContactList extends Component{
+```class ContactList extends Component{
     state = { user: "John };
     render() {} }
 ```
