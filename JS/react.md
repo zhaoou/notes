@@ -81,7 +81,8 @@ Props
 Stateless Functional Component
 - components build by a single function
 - `function User(props){ return (<p> props.username </p>); }`
-- not a class, don't uses this to get properties
+- `const Email = (props) => ( <div> {props.text} </div> );`
+- not a class, don't uses `this` to get properties
 
 Controlled components
 - form hooked up to state
