@@ -29,11 +29,31 @@ React component
 - maintains and manages **state**
 ```
 class ContactList extends Component{
-  state = { user: "John };
-  render() {this.state.user} }
+  state = { user: "John }; // in render method: {this.state.user} 
 ```
 - state changes are reflected in the view **automatically**
+- UI is a function of state
+- react compares render() outputs before-after state change and updates DOM, aka reconciliation.
+- using `setState` informs react of state updates
+- v1: `setState({name: "Joe"});`
+- v2: `setState( (oldState) => {count: oldState.count + 1} );`
 
+State Management
+
+- Inside of the component holding state define a function responsible for state update
+```
+removeContact = (toRemove) => {
+    this.setState(
+      (s) => ({contacts : s.contacts.filter((c) => c.id != toRemove.id)}) )}
+```
+- Pass this function to component using props
+```
+<ListContacts onDeleteContact={this.removeContact} contacts={this.state.contacts}/>
+```
+- In that component, assign that function as a handler
+```
+onClick={() => props.onDeleteContact(c)}
+```
 
 
 Composition
