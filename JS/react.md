@@ -26,6 +26,11 @@ React component
 - render html, often using JSX
 - extends React.Component
 - still need to be rendered using ReactDOM.render
+- maintain and manage * state *
+- ```class ContactList extends Component{
+    state = { user: "John };
+    render() {} }
+```
 
 Composition
 - when rendering component, we can use other components in JSX
@@ -70,7 +75,8 @@ Getting Started
 #### STATE
 
 - state resides in in the root Component
-- state is passed to components that need it using props
+- state is passed to components that need it using props 
+- props are immutable
 
 
 ##### Props - Stateless Functional Components - Controlled Components
