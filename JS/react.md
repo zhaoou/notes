@@ -42,8 +42,6 @@ class ContactList extends Component{
 - state is passed to components that need it using props 
 - props are immutable
 
-How?
-
 - Inside of the component holding state define a function responsible for state update
 ```
 removeContact = (toRemove) => {
@@ -58,6 +56,18 @@ removeContact = (toRemove) => {
 ```
 onClick={() => props.onDeleteContact(c)}
 ```
+- PropTypes: add type safety and props validation
+```
+import PropTypes from 'prop-types'; 
+// ...component code... //
+ListContacts.propTypes ={ 
+    contacts: PropTypes.array.isRequired,
+    onDeleteContact: PropTypes.func.isRequired
+}
+```
+
+
+
 
 #### Composition
 
