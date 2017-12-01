@@ -26,12 +26,15 @@ React component
 - render html, often using JSX
 - extends React.Component
 - still need to be rendered using ReactDOM.render
-- maintain and manage * state *
+- maintains and manages **state**
 ```
 class ContactList extends Component{
   state = { user: "John };
-  render() {} }
+  render() {this.state.user} }
 ```
+- state changes are reflected in the view **automatically**
+
+
 
 Composition
 - when rendering component, we can use other components in JSX
