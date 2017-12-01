@@ -75,5 +75,8 @@ Getting Started
 
 Props - Functional Components - Controlled Components
 - props: pass data into components
+- Functional Component: components build by a single function
+```
+function User(props){ return (<p> props.username </p>); }
+```
 - Controlled components: form hooked up to state
-- 
