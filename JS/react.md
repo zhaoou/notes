@@ -73,10 +73,15 @@ Getting Started
 - state is passed to components that need it using props
 
 
-Props - Functional Components - Controlled Components
-- props: pass data into components
-- Functional Component: components build by a single function
-```
-function User(props){ return (<p> props.username </p>); }
-```
-- Controlled components: form hooked up to state
+##### Props - Stateless Functional Components - Controlled Components
+
+Props
+- pass data into components
+
+Stateless Functional Component
+- components build by a single function
+- `function User(props){ return (<p> props.username </p>); }`
+- not a class, don't uses this to get properties
+
+Controlled components
+- form hooked up to state
