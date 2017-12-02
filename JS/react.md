@@ -117,8 +117,19 @@ Stateless Functional Component
 - not a class, don't uses `this` to get properties
 
 Controlled components
-- form hooked up to state
-
+- components rendering a form with form state stored in a component and not in DOM
+- react controls the state of the form
+```
+class NameForm extends React.Component {
+  state = {email: ""}
+  handleChange = (event) => { this.setState({email: event.target.value}) } 
+  render (){ 
+    return( <form>
+              <input type="text" value={this.state.email} onChange={this.handleChange} /> 
+            </form> )}}
+            
+// any change in form value triggers handler which updates component's state, which triggers rendering by default.
+```
 
 #### Getting Started
 - create-react-app contacts
