@@ -130,6 +130,9 @@ class NameForm extends React.Component {
             
 // any change in form value triggers handler which updates component's state, which triggers rendering by default.
 ```
+- instant input validation
+- conditionally enable/disable buttons
+- enforce input formats
 
 #### Getting Started
 - create-react-app contacts
