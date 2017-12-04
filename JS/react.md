@@ -38,10 +38,13 @@ class ContactList extends Component{
 
 #### State Management
 
-- state resides in in the root Component
-- state is passed to components that need it using props 
+Using props:
+- state is passed to components that need it using props
 - props are immutable
+- props should not initialize state
 
+Using state:
+- state resides in in the root Component
 - Inside of the component holding state define a function responsible for state update
 ```
 removeContact = (toRemove) => {
@@ -54,7 +57,7 @@ removeContact = (toRemove) => {
 ```
 - In that component, assign that function as a handler
 ```
-onClick={() => props.onDeleteContact(c)}
+onClick={() => props.onDeleteContact(c)} // c comes from the current iteration
 ```
 - PropTypes: add type safety and props validation
 ```
