@@ -134,6 +134,14 @@ class NameForm extends React.Component {
 - conditionally enable/disable buttons
 - enforce input formats
 
+#### Component lifecycle events:
+
+- componentWillMount()
+- componentDidMount() : good point for AJAX calls
+- componentWillUnmount()
+- componentWillReceiveProps()
+- it is convinient to have all AJAX calling functions in one place
+
 #### Getting Started
 - create-react-app contacts
 - cd contacts
