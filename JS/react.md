@@ -161,6 +161,7 @@ class NameForm extends React.Component {
 <Route exact path="/" render={ ()=> (<SomeComponent/>) } />
 <Route path="/create" component={SomeComponent} />
 ```
+- `history.push("/");` forces the app to go to the main route => router will render whatever component is mapped to `"/"`
 
 ### Getting Started
 - create-react-app contacts
