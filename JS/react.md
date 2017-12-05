@@ -36,42 +36,6 @@ class ContactList extends Component{
 - v1: `setState({name: "Joe"});`
 - v2: `setState( (oldState) => {count: oldState.count + 1} );`
 
-#### State Management
-
-Using props:
-- state is passed to components that need it using props
-- props are immutable
-- props should not initialize state
-
-Using state:
-- state resides in in the root Component
-- Inside of the component holding state define a function responsible for state update
-```
-removeContact = (toRemove) => {
-    this.setState(
-      (s) => ({contacts : s.contacts.filter((c) => c.id != toRemove.id)}) )}
-```
-- Pass this function to component using props
-```
-<ListContacts onDeleteContact={this.removeContact} contacts={this.state.contacts}/>
-```
-- In that component, assign that function as a handler
-```
-onClick={() => props.onDeleteContact(c)} // c comes from the current iteration
-```
-- PropTypes: add type safety and props validation
-```
-import PropTypes from 'prop-types'; 
-// ...component code... //
-ListContacts.propTypes ={ 
-    contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
-}
-```
-
-
-
-
 #### Composition
 
 - use .createElement inside of another .createElement
@@ -108,19 +72,42 @@ class App extends Component {
 ```
 
 
-#### Props - Stateless Functional Components - Controlled Components
+#### State Management
 
-Props
-- pass data into components
+**Props**
+- state is passed to components that need it using props
+- props are immutable
+- props should not initialize state
 
-Stateless Functional Component
-- components build by a single function
-- `function User(props){ return (<p> props.username </p>); }`
-- `const Email = (props) => ( <div> {props.text} </div> );`
-- not a class, don't uses `this` to get properties
+**State**
+- state resides in in the root Component
+- Inside of the component holding state define a function responsible for state update
+```
+removeContact = (toRemove) => {
+    this.setState(
+      (s) => ({contacts : s.contacts.filter((c) => c.id != toRemove.id)}) )}
+```
+- Pass this function to component using props
+```
+<ListContacts onDeleteContact={this.removeContact} contacts={this.state.contacts}/>
+```
+- In that component, assign that function as a handler
+```
+onClick={() => props.onDeleteContact(c)} // c comes from the current iteration
+```
+- PropTypes: add type safety and props validation
+```
+import PropTypes from 'prop-types'; 
+// ...component code... //
+ListContacts.propTypes ={ 
+    contacts: PropTypes.array.isRequired,
+    onDeleteContact: PropTypes.func.isRequired
+}
+```
 
-Controlled components
+**Controlled components**
 - components rendering a form with form state stored in a component and not in DOM
+- use if you want UI to update based on form value
 - react controls the state of the form
 ```
 class NameForm extends React.Component {
@@ -137,10 +124,18 @@ class NameForm extends React.Component {
 - conditionally enable/disable buttons
 - enforce input formats
 
+**Stateless Functional Component**
+- components build by a single function
+- `function User(props){ return (<p> props.username </p>); }`
+- or `const Email = (props) => ( <div> {props.text} </div> );`
+- not a class, don't uses `this` to get properties
+- stateless
+
+
 #### Component lifecycle events:
 
 - componentWillMount()
-- componentDidMount() : good point for AJAX calls
+- componentDidMount() : good point for AJAX calls, setting state from this method will rerender UI.
 - componentWillUnmount()
 - componentWillReceiveProps()
 - it is convinient to have all AJAX calling functions in one place
