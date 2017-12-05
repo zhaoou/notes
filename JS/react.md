@@ -1,6 +1,6 @@
-### BASICS
+## BASICS
 
-#### React element
+### React element
 
 - JS object, not a DOM node
 - React.createElement(elementType, props, elementContent); // returns one root element
@@ -9,7 +9,7 @@
 - ReactDOM can render this element in the browser
     ```ReactDOM.render(element, document.getElementById(“root”)); // root : <div id=“root”></div>```
 
-#### JSX
+### JSX
 
 - alternative to .createElement()
 - compiles into .createElement() calls
@@ -17,7 +17,7 @@
 - write one html element in JS
 - {evaluates everything here}
 
-#### React component
+### React component
 
 - reusable
 - single responsibility
@@ -36,7 +36,7 @@ class ContactList extends Component{
 - v1: `setState({name: "Joe"});`
 - v2: `setState( (oldState) => {count: oldState.count + 1} );`
 
-#### Composition
+### Composition
 
 - use .createElement inside of another .createElement
 - should return ONE element (with child elements)
@@ -72,7 +72,7 @@ class App extends Component {
 ```
 
 
-#### State Management
+### State Management
 
 **Props**
 - state is passed to components that need it using props
@@ -132,7 +132,7 @@ class NameForm extends React.Component {
 - stateless
 
 
-#### Component lifecycle events:
+### Component lifecycle events:
 
 - componentWillMount()
 - componentDidMount() : good point for AJAX calls, setting state from this method will rerender UI.
@@ -140,7 +140,7 @@ class NameForm extends React.Component {
 - componentWillReceiveProps()
 - it is convinient to have all AJAX calling functions in one place
 
-#### Getting Started
+### Getting Started
 - create-react-app contacts
 - cd contacts
 - npm start
