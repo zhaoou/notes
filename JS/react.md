@@ -1,3 +1,19 @@
+```
+  (---------root component----------)
+  ( (state) (state update function) )
+  (                                 )
+       |               |
+       |               |
+   (prop 1)         (prop 2)     <- passed as props to child component
+        \             /
+         \           /      
+       (---child component------------------)
+       ( 1. renders state                   )
+       ( 2. calls update function on action )
+       ( 3. causes rerendering              ) 
+```
+
+
 ## BASICS
 
 ### React element
