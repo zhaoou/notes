@@ -80,14 +80,14 @@ class App extends Component {
 - props should not initialize state
 
 **State**
-- state resides in in the root Component
+- State resides in in the root Component
 - Inside of the component holding state define a function responsible for state update
 ```
 removeContact = (toRemove) => {
     this.setState(
       (s) => ({contacts : s.contacts.filter((c) => c.id != toRemove.id)}) )}
 ```
-- Pass this function to component using props
+- Pass **state and this function** to component(s) using props
 ```
 <ListContacts onDeleteContact={this.removeContact} contacts={this.state.contacts}/>
 ```
@@ -106,7 +106,9 @@ ListContacts.propTypes ={
 ```
 
 **Controlled components**
-- components rendering a form with form state stored in a component and not in DOM
+
+- **State resides in controlled component**
+- components rendering a form, with form state stored in a component and not in DOM
 - use if you want UI to update based on form value
 - react controls the state of the form
 ```
