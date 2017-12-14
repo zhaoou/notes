@@ -7,9 +7,7 @@ Transactions allow us to fine tune concurrent access to our data sources.
 
 * Transactional resource - something that can participate in a transaction, something supporting transaction. (Message Queue, Database, etc.)
 
-* PlatformTransactionManager - spring bean that represents one transactional resource, and manages transactions on that resource.
-PlatformTransactionManager needs reference to the resource it is managing transactions for.
-
+* PlatformTransactionManager - spring bean that manages transactions.
 
 
 ### Understanding transactions in Spring
@@ -18,7 +16,22 @@ PlatformTransactionManager needs reference to the resource it is managing transa
 * Local - using one transactional resource, like 1 database
 * Global - using 2 or more TX resources, like 2 databases
 
-Global transactions require JTA transaction manager to coordinate transactions over several resources. (examples: Bitronix, Atomikos).
+Global transactions require JTA transaction manager to coordinate transactions over several resources. (examples: Bitronix, Atomikos):
+```
+LOCAL:
+
+(Tx manager)---------> resource
+
+GLOBAL:
+
+(JTA Tx manager)---------> resource manager ---------> resource
+               \
+                \--------> resource manager ---------> resource
+```
+
+> Local PlatformTransactionManager needs reference to the **resource** it is managing transactions for.
+> Distributed (JTA) PlatformTransactionManager needs references to all **resource managers** of resources participating in a transaction.
+
 
 **2 main ways to manage transactions in Spring are:**
 
