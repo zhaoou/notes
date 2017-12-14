@@ -27,6 +27,21 @@ GLOBAL:
 (JTA Tx manager)---------> resource manager ---------> resource
                \
                 \--------> resource manager ---------> resource
+                
+ATOMIKOS config overview: (read bottom to top:)
+ 
+<tx:annotation-driven transaction-manager="transactionManager" /> // enable Tx
+ |
+ +-JtaTransactionManager  // JTA PlatformTransactionManager
+    |
+    +-com.atomikos.icatch.jta.UserTransactionImp  // user transaction
+    +-com.atomikos.icatch.jta.UserTransactionManager // transaction manager
+
+org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean // EMF
+ |
+ +-com.atomikos.jdbc.AtomikosDataSourceBean // data source class
+   | 
+   +-com.mysql.jdbc.jdbc2.optional.MysqlXADataSource // resource manager
 ```
 
 > Local PlatformTransactionManager needs reference to the **resource** it is managing transactions for.
