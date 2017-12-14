@@ -171,8 +171,7 @@ class NameForm extends React.Component {
   pathname: '/courses',
   search: '?sort=name',
   hash: '#the-hash',
-  state: { fromDashboard: true }
-}}> Courses </Link>
+  state: { fromDashboard: true }    }}> Courses </Link>
 ```
 - Routers looks at URL and renders UI if url match is found
 ```
