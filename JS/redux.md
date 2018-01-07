@@ -41,6 +41,6 @@ function appReducer(state, action){
 * `.subscribe(listener);`
 * `.getState();`
 * we also connect component's events with with the store
-* `.dispatch(action);`
+* `.dispatch(action);` finds and invokes the right reducer
 
 
