@@ -43,4 +43,32 @@ function appReducer(state, action){
 * we also connect component's events with with the store
 * `.dispatch(action);` finds and invokes the right reducer
 
+### React-Redux
 
+#### Provider
+
+* uses React's context to pass data from the store to any component that needs it.
+
+#### connect()
+
+* `connect(mapStateToProps, mapDispatchToProps)(MyComponent)`
+* connects a React component to the Redux store
+* `mapStateToProps()` allows us to specify which state from the store you want passed to your React component
+* `mapDispatchToProps()` allows us to bind dispatch to your action creators before they ever hit your component
+
+##### `MyComponent` 
+
+* Will recieve store's state and/or dispatch function reference
+
+##### `mapStateToProps()`
+
+* function (current store, current props) =>  new props for MyComponent
+* `mapStateToProps(storeState, [ownProps])`
+* component will subscribe to Redux store updates 
+* if the store is updated, mapStateToProps will be called.
+* must return a plain object, which will be merged into the component’s props
+* just a function that lets connect() know how to map specific parts of the store’s state into usable props
+
+##### `mapDispatchToProps()`
+
+* allows to bind `dispatch()` to action creators
