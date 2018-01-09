@@ -54,6 +54,13 @@ function appReducer(state, action){
 |           |<---(mapStateToProps called with new state)--|                |
 |-----------|                                             |----------------|
 
+
+
+    state -------(reducer)--------> new state
+                    /
+                   /
+           action /
+
 ```
 
 ### React-Redux
