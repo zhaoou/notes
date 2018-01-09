@@ -40,8 +40,21 @@ function appReducer(state, action){
 * In componentDidMount we connect store's state with the component state by subscribing
 * `.subscribe(listener);`
 * `.getState();`
-* we also connect component's events with with the store
+* we also connect component's events with the store
 * `.dispatch(action);` finds and invokes the right reducer
+
+
+#### 
+```
+
+|-Component-|                                             |-Store----------|
+|           |----(dispatches Action)--------------------->|                |
+|           |                                             |->calls reducer |  
+|           |                                             |->gets new state|
+|           |<---(mapStateToProps called with new state)--|                |
+|-----------|                                             |----------------|
+
+```
 
 ### React-Redux
 
