@@ -135,3 +135,13 @@ apply - invokes using object reference and an optional array of arguments: ```lo
 
 call - invokes using object reference and optional arguments to the function being called: ```logThis.call({name:"hi"});```
 
+### foreach, map, filter, reduce
+
+foreach **takes element, index and array and returnes undefined**, designed for side effects, not building new array, unlike
+
+map takes a function that **takes element, index and array and returns a new element**.
+
+filter takes a function that **takes element, index and array and returns true / false**.
+
+reduce takes a function that **takes accumulator, element and returns new accumulator value**.
+
