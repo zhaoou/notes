@@ -159,3 +159,28 @@ we can add methods to all instances by adding them to constructor's prototype:
 Rabbit.prototype.speak = function(line) {
   console.log("The " + this.type + " rabbit says '" + line + "'"); };
 ```
+
+sometimes (if we need a map) we create prototypeless objects: `var map = Object.create(null);`
+
+### Prototype
+
+prototypes are used for property lookup if not found on the object
+
+property can be `enumerable` and `nonenumerable`
+
+enumerables show up in for-in loops:
+
+```
+for(var p in user){}
+```
+
+properties created by simple assignment are enumerable, adding nonenumerables looks like this:
+```
+Object.defineProperty(Object.prototype, "hiddenNonsense",
+                      {enumerable: false, value: "hi"});
+```
+
+all enumerable properties of all prototypes show up in for-in loops, we can check if property belongs only to the object:
+```
+user.hasOwnProperty("age");
+```
