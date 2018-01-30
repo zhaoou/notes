@@ -184,3 +184,27 @@ all enumerable properties of all prototypes show up in for-in loops, we can chec
 ```
 user.hasOwnProperty("age");
 ```
+#### Setters and getters
+
+we can define properties via setters and getters:
+
+```
+var pile = {
+  elements: ["eggshell", "orange peel", "worm"],
+  get height() {
+    return this.elements.length;
+  },
+  set height(value) {
+    console.log("Ignoring attempt to set height to", value);
+  }
+};
+```
+
+height is a virtual property.
+
+We can add setter/getter to a prototype:
+```
+Object.defineProperty(TextCell.prototype, "heightProp", {
+  get: function() { return this.text.length; }
+});
+```
