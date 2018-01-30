@@ -145,3 +145,17 @@ filter takes a function that **takes element, index and array and returns true /
 
 reduce takes a function that **takes accumulator, element and returns new accumulator value**.
 
+### Constructor
+
+a function that is used to create new instances of itself
+
+when used with `new` is given a new empty object, and implicit return statement
+
+has a prototype property that will become a prototype of all instances created by that constructor
+
+we can add methods to all instances by adding them to constructor's prototype:
+
+```
+Rabbit.prototype.speak = function(line) {
+  console.log("The " + this.type + " rabbit says '" + line + "'"); };
+```
