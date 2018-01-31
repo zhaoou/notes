@@ -15,3 +15,6 @@ To fix this we need to tell JVM that all certificates in that chain are trusted,
 2) In your `$JAVA_HOME` (run `/usr/libexec/java_home` to find it), navigate to `/jre/lib/security` 
 
 3) `sudo keytool -importcert -file /path/to/cert/DSTRootCAX3.crt -keystore cacerts`
+
+
+> if propmted, default keystore password is: `changeit`
