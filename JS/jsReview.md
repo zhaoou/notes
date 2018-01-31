@@ -208,3 +208,22 @@ Object.defineProperty(TextCell.prototype, "heightProp", {
   get: function() { return this.text.length; }
 });
 ```
+
+### Spread and rest
+
+Given array `ray`, `...ray` evaluates to the elements of the array, aka **spread**.
+
+```
+let ray = [3, 4];
+let ray2 = [1, 2,  ...ray,  5];
+```
+
+Given a variable length list of elements,  `...elements` evaluates as array from those elements, aka **rest**.
+
+```
+function doThat(...things){ 
+// 1. has things array block scoped variable
+// 2. **rest** parameter must be last in the parameter list
+}
+```
+
