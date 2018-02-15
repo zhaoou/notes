@@ -281,3 +281,19 @@ try {
 }
 ```
 
+### Callback
+
+JS name for HOF function arguments
+
+When passing function to another function, context of that argument function is lost:
+
+```
+setTimout(b.remindUser, 1000);
+// inside setTimout in 1 second: what the hell is b?
+```
+
+Fix that by using closure:
+```
+setTimout( function(){ b.remindUser(); }, 1000 );
+// closure makes sure that b is available when needed later, in 1 second.
+```
