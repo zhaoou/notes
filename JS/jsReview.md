@@ -261,3 +261,23 @@ Many imported modules can be slow to load, bundlers combine them into a single f
 ### Minifiers
 
 On top of bundlers, there are also minifiers that minimize file size to save loading time.
+
+
+### Errors
+
+Like a real language, JS supports exceptions
+
+```
+try {
+  throw new Error("custom error message");   
+} catch(e) {
+  if(e instanceof RangeError) console.log(e.message);
+  else { 
+    console.log(e.message); 
+    throw e;
+    }
+} finally {
+  console.log("finally is run regardless");
+}
+```
+
