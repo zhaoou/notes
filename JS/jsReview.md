@@ -223,7 +223,7 @@ Given a variable length list of elements,  `...elements` evaluates as array from
 ```
 function doThat(...things){ 
 // 1. has things array block scoped variable
-// 2. **rest** parameter must be last in the parameter list
+// 2. must be last in the parameter list
 }
 ```
 
