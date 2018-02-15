@@ -79,6 +79,8 @@ From block 2 we can see variables defined in 2 and 1, but not 3.
 
 Variables defined in both global and function scopes: function scoped variable will 'shadow' the globally defined variable.
 
+> **let and const** declare variables scoped to a block(instead of a function).
+
 * Arrays
 ```
 var numbers = [1, 2, 3];
@@ -227,3 +229,35 @@ function doThat(...things){
 }
 ```
 
+### Modules
+
+We can import functions and variables from different files into our file for reuse.
+Doing that may introduce name conflicts. 
+
+* One way to avoid conflicts is to make sure that each file is an object, and use it as an object after import.
+
+* Another way is to wrap code in a function that returns interface object, and call it in the importing module.
+
+#### CommonsJS (used by npm)
+
+* `require` evaluates the js file into a function scope, so that all files are in the different scopes.
+
+* `export` inside of the module allows other modules to access functionality in this module.
+
+#### ES modules
+
+* `import` is a keyword used for importing from the module
+
+* `export` is a keyword used for making a set of things available for others to import
+
+* by default, `default` variable is imported and exported.
+
+* can export additional variables as needed
+
+### Bundlers
+
+Many imported modules can be slow to load, bundlers combine them into a single file, preserving namespacing
+
+### Minifiers
+
+On top of bundlers, there are also minifiers that minimize file size to save loading time.
