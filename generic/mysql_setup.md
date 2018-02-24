@@ -4,7 +4,7 @@
 
 * Edit /etc/mysql/mysql.conf.d/mysqld.cnf to listen on 0.0.0.0 instead of 127.0.0.1
 
-* Sign in `mysql -u root -p` and run:
+* Sign in into mysql `mysql -u root -p` and run:
 ```
 CREATE USER 'newuser’@'%' IDENTIFIED BY 'password’;
 ```
@@ -18,3 +18,4 @@ create schema new_schema;
 grant all privileges on mydb.* to myuser@'%' identified by 'mypasswd'; // <- for remote connection
 grant all privileges on mydb.* to myuser@localhost identified by 'mypasswd'; // <- local connection
 ```
+* exit and enjoy!
