@@ -1,9 +1,57 @@
 ## let and const
+
+* let and const are block scoped
+
+* not hoisted
+
+* const is for constants, let is for variables
+
 ## template literals
+
+* String in backquotes with `${value}`
+
+```
+`Hello, my name is ${user.name}`
+```
+
 ## destructuring
-### arrays
-### objects
+
+* from object
+```
+const gemstone = {
+  type: 'quartz',
+  color: 'rose',
+  karat: 21.29
+};
+const {type, color, karat} = gemstone;
+console.log(type, color, karat);
+```
+* destructuring functions from objects looses `this` reference.
+
+* from array
+```
+const point = [10, 25, -34];
+const [x, y, z] = point;
+```
+
 ## object literal shorthand
+
+* works if object properties have the same name as variables
+
+```
+let type = 'quartz';
+let color = 'rose';
+let carat = 21.29;
+
+const gemstone = {
+  type,
+  color,
+  carat,
+  calculateWorth: function() {} // same as below
+  calculateWorth() {} // same as above! no need for function keywords
+};
+```
+
 ## for-of and iterable objects
 
 * for-in iterates over all enumerable properties, even if they are from parent. Hence `hasOwnProperty` use.
@@ -31,7 +79,7 @@ const [total, subtotal, tax, ...items] = order;
 console.log(items);// [ 'cheese', 'eggs', 'milk', 'bread' ]
 ```
 
-### rest as a param to variadic function
+* rest as a param to variadic function
 
 ```
 function sum(...nums) {
