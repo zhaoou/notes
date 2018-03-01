@@ -62,7 +62,7 @@ const gemstone = {
 
 ## spread & rest
 
-* spread `...` spread iterable objects into elements
+* spread `...` spreads iterable objects into its elements
 
 ```
 const fruits = ["apples", "bananas", "pears"];
