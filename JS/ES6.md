@@ -90,3 +90,23 @@ function sum(...nums) {
   return total;
 }
 ```
+## default parameters
+
+* assign default value to parameter(s):
+```
+function say(word = "hi"){
+  console.log( word + " world");
+}
+```
+
+* with array destructuring:
+```
+function grid([w = 4, h = 5] =[]){ // each element and array itself is defaulted!
+  console.log( w, " and ", h)
+}
+```
+
+* with object destructuring:
+```
+function create({count = "5", color="red"} = {}){ console.log(count, color); }
+```
