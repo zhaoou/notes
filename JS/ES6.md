@@ -110,3 +110,21 @@ function grid([w = 4, h = 5] =[]){ // each element and array itself is defaulted
 ```
 function create({count = "5", color="red"} = {}){ console.log(count, color); }
 ```
+
+
+## classes
+
+* syntactic sugar on top of JS
+
+```
+class Person{
+  constructor(name){ // constructor taking parameter
+    this.name = name; // this is avilable
+  }
+  speak(phrase){ // method
+    console.log( `${this.name} says ${phrase}`);
+  }
+}
+
+let jack = new Person("Jack");
+```
