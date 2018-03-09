@@ -124,6 +124,9 @@ class Person{
   speak(phrase){ // method
     console.log( `${this.name} says ${phrase}`);
   }
+  
+  static jump(){ console.log("jumping"); } // static method
+
 }
 
 let jack = new Person("Jack");
