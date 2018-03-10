@@ -131,3 +131,23 @@ class Person{
 
 let jack = new Person("Jack");
 ```
+
+* extends creates inheritance relationship
+
+```
+class Tree{
+  constructor(name){ this.name = name; }
+  describe(){ console.log(this.name); }
+}
+
+class Maple extends Tree{  // extends creates inheritance
+  constructor(name, age){
+    super(name); // must be first call in inheritance
+    this.age = age;
+  }
+}
+
+let tree = new Tree("poplar");
+let maple1 = new Maple("maple1");
+console.log(maple1 instanceof Tree); // -> true
+```
