@@ -314,14 +314,14 @@ setTimout( function(){ b.remindUser(); }, 1000 );
 
 * Execution stack and lexical scopes are different stack-like structures.
 
-* When a function is created (method creating function is called) it keeps its lexical environment(all variables, functions, etc) as a hidden `environment` reference.
+* When a function is created (method creating function is called) it keeps its lexical environment (all variables, functions, etc) as a hidden `environment` reference.
 
 * When a function is called:
 
 1) new stackframe is created on call stack
-2) function's environment scope is recreated(where this function was created)
-3) recreated scope is placed on lexical scope stack
-4) new lexical scope is created with variables and placed on the lexical scope stack
+2) function's `environment` scope is **recreated** (where this function was created)
+3) recreated scope is placed on the lexical scope stack
+4) new lexical scope is created (corresponding to this invocation) and placed on the lexical scope stack
 
 
 ```
@@ -341,5 +341,31 @@ a();   |_______________|     |  a's creation environment     |
 CALLS        STACK                        SCOPE
 ```
 
+* example:
 
+```
+function foo() {
+  let x = 10;
+  function bar() { return x; }
+  return bar;
+}
+let x = 20; 
+let bar = foo();
+bar(); // 10, not 20!
+```
+* when two or more functions are created, their `environment` variables refer to the same lexical environment:
 
+```
+function createCounter() {
+  let count = 0;
+  return {
+    increment() { return ++count; },
+    decrement() { return --count; },
+  };
+}
+let counter = createCounter();
+console.log( counter.increment(), // 1
+             counter.decrement(), // 0
+             counter.increment(), // 1
+);
+```
