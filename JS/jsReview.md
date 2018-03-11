@@ -297,3 +297,49 @@ Fix that by using closure:
 setTimout( function(){ b.remindUser(); }, 1000 );
 // closure makes sure that b is available when needed later, in 1 second.
 ```
+### Scopes
+
+* Execution context is a stackframe placed on the stack when a method is called
+
+* Identifier resolution - process of finding value of a variable
+
+* JS uses lexical environments aka scopes for identifier resolution
+
+* Lexical scopes contain variables, functions, parameters and reference to an outer lexical scope
+
+* Resolution is checking the current scope, and parents until finds the variable of fails
+
+
+#### Scope rules
+
+* Execution stack and lexical scopes are different stack-like structures.
+
+* When a function is created (method creating function is called) it keeps its lexical environment(all variables, functions, etc) as a hidden `environment` reference.
+
+* When a function is called:
+
+1) new stackframe is created on call stack
+2) function's environment scope is recreated(where this function was created)
+3) recreated scope is placed on lexical scope stack
+4) new lexical scope is created with variables and placed on the lexical scope stack
+
+
+```
+function a(){ 
+  b(); 
+}
+
+                               _____________________________
+                              |  b's invokation environment |
+        |--b's stack--|       |_____________________________|
+        |             |       |  b's creation environment   |
+b();    |_____________|       |_____________________________|
+       |--a's stack----|     |  a's invokation environment   |
+       |               |     |_______________________________|
+a();   |_______________|     |  a's creation environment     | 
+                             |_______________________________|
+CALLS        STACK                        SCOPE
+```
+
+
+
