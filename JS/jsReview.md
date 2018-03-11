@@ -346,12 +346,12 @@ CALLS        STACK                        SCOPE
 ```
 function foo() {
   let x = 10;
-  function bar() { return x; }
+  function bar() { return x; } // bar is created, it's creation environment is captured, x=10.
   return bar;
 }
 let x = 20; 
-let bar = foo();
-bar(); // 10, not 20!
+let bar = foo(); // causes new function creation
+bar(); // x is looked up according to the rules above.
 ```
 * when two or more functions are created, their `environment` variables refer to the same lexical environment:
 
@@ -367,5 +367,27 @@ let counter = createCounter();
 console.log( counter.increment(), // 1
              counter.decrement(), // 0
              counter.increment(), // 1
+);
+```
+#### this
+
+* when a lexical environment (scope) is created, it is passed `this` reference.
+
+* in arrow functions, their lexical scope is not given `this` reference, and it is looked up from parent's scope.
+
+```
+var x = 10;
+ 
+let foo = {
+  x: 20,
+  bar() { return this.x; },
+  baz:  () => this.x,
+  qux() { let arrow = () => this.x;
+          return arrow();           }
+};
+ 
+console.log( foo.bar(), // `this` is provided to the invocation environment
+             foo.baz(), // not given `this` it was looked up from parent's lexical scope: global,
+             foo.qux(), // `this` was captured in creation environment, not given but looked up from qux() creation environment
 );
 ```
