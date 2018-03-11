@@ -373,7 +373,7 @@ console.log( counter.increment(), // 1
 
 * when a lexical environment (scope) is created, it is passed `this` reference.
 
-* in arrow functions, their lexical scope is not given `this` reference, and it is looked up from parent's scope.
+* in arrow functions, their lexical scope is not given `this` reference, **it is looked up**
 
 ```
 var x = 10;
