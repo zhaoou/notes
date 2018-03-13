@@ -12,8 +12,8 @@
 
 ```
 @Query(value = "SELECT * FROM email WHERE business_id = ?1 ORDER BY ?#{#pageable}",
-		   countQuery = "SELECT count(*) FROM email WHERE business_id = ?1 ORDER by ?#{#pageable}",
-		   nativeQuery = true)
+    countQuery = "SELECT count(*) FROM email WHERE business_id = ?1 ORDER by ?#{#pageable}",
+    nativeQuery = true)
 Page<Email> findByBusinessIdPagable(String businessId, Pageable pageable);
 ```
 
