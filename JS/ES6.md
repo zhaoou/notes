@@ -151,3 +151,52 @@ let tree = new Tree("poplar");
 let maple1 = new Maple("maple1");
 console.log(maple1 instanceof Tree); // -> true
 ```
+
+
+## modules
+
+* a providing module must export its public interface 
+
+```
+export const message = "Hello";  // direct export
+export function sayHiToNinja() {
+  return message + " " + ninja;
+}
+
+export { sayHi as sayHello }; // exporting and aliasing
+
+
+OR
+
+export { message, sayHiToNinja }; // using object literal shorthand
+
+OR
+
+export default class Ninja { constructor(name){ // using default export
+    this.name = name;
+  }
+} 
+
+AND 
+
+export function compareNinjas(ninja1, ninja2){ // additional exports possible with default
+  return ninja1.name === ninja2.name;
+}
+```
+
+* a using module must import what it needs
+
+```
+import { message, sayHiToNinja} from "Ninja.js"; // using destructuring
+console.log(message);
+
+OR
+
+import * as ninjaModule from "Ninja.js"; // using * notation and alias
+console.log(ninjaModule.message);
+
+OR
+
+import ImportedNinja from "Ninja.js"; // importing default and giving it a name
+import {compareNinjas} from "Ninja.js"; // additional import, using destructuring
+```
