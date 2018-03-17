@@ -16,6 +16,18 @@
 
 ## BASICS
 
+React uses elements to build UI, not templates
+
+React uses ReactDOM to render elements in the browser
+
+Elements nest inside other elements
+
+JSX recreates element nesting using HTML
+
+JSX can be nested inside JS and have nested JS code 
+
+Component groups many elements into reusable unit
+
 ### React element
 
 - JS object, not a DOM node
@@ -30,7 +42,7 @@
 - alternative to .createElement()
 - compiles into .createElement() calls
 - syntax extension to JS
-- write one html element in JS
+- creates one html element in JS
 - {evaluates everything here}
 
 ### React component
