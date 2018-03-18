@@ -200,3 +200,34 @@ OR
 import ImportedNinja from "Ninja.js"; // importing default and giving it a name
 import {compareNinjas} from "Ninja.js"; // additional import, using destructuring
 ```
+
+## promise
+
+* promise is representation of asynchronous computation with composability built-in.
+
+* promise takes two functions: one to be called on succes and another on failure.
+
+```
+var p = new Promise(function(resolve, reject) { // creation
+  let result = slowFunction();
+	if(result) { resolve(result); }
+	else       { reject(new Error()); }
+});
+
+p.then(function(r) { console.log(r); }) // use
+.catch(function(e) { console.log(e); }) // 
+```
+
+* `Promise.all([])` takes an array promises and waits for them all to succeed before calling callback
+
+* `Promise.all([])` resolves an array of results
+
+```
+Promise.all([promise1, promise2])
+.then(function(results) {})
+.catch(function(error) {});
+```
+
+* `Promise.race([])` works similar to `.all([])` but returns a result of the first promise to finish
+
+* `Promise.resolve()` and `Promise.reject()` immediately return promise
