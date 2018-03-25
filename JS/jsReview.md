@@ -318,10 +318,9 @@ setTimout( function(){ b.remindUser(); }, 1000 );
 
 * When a function is called:
 
-1) new stackframe is created on call stack
-2) function's `environment` scope is **recreated** (where this function was created)
-3) recreated scope is placed on the lexical scope stack
-4) new lexical scope is created (corresponding to this invocation) and placed on the lexical scope stack
+1) new stackframe is created on **call stack**
+2) function's `environment` scope is **recreated on lexical stack** (with all things available when this function was created)
+3) new lexical scope is created (corresponding to stackframe on call stack) and placed on the lexical stack
 
 
 ```
