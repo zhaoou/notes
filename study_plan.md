@@ -3,3 +3,4 @@
 * ~~SSP: Nov 27th - Jan 7th~~
 * ES6 with babel, npm and node: build a simple MVC app
 * Udacity: React Nanodegree: Nov 28th - 
+* d3.js
