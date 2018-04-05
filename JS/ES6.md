@@ -155,53 +155,53 @@ console.log(maple1 instanceof Tree); // -> true
 
 ## modules
 
-* a providing module must export its public interface 
+* a providing module must export its public values (functions and variables)
 
 ```
 // direct exports
 export const message = "Hello"; 
 export function sayHiToNinja() { return message + " " + ninja; }
 
-// aliasing export
-export { sayHi as sayHello }; 
-
 // exporting with object literal shorthand
 export { message, sayHiToNinja }; 
+
+// aliasing export
+export { sayHi as sayHello }; 
 ```
 
 * a using module must import what it needs
 
 ```
-import { message, sayHiToNinja} from "Ninja.js"; // using destructuring
+// using destructuring
+import { message, sayHiToNinja} from "Ninja.js"; 
 console.log(message);
 
-OR
-
-import * as ninjaModule from "Ninja.js"; // using * notation and alias
+// using * notation and alias
+import * as ninjaModule from "Ninja.js"; 
 console.log(ninjaModule.message);
 ```
 
 ### default module exports & imports
 
 * exports
+
 ```
 // default export
-export default class Ninja { constructor(name){ 
-    this.name = name;
-  }
+export default class Ninja { 
+  constructor(name){ this.name = name;}
 } 
 
 // additional exports possible with default
-export function compareNinjas(ninja1, ninja2){ 
-  return ninja1.name === ninja2.name;
-}
+export function compareNinjas(ninja1, ninja2){ return ninja1.name === ninja2.name;}
 ```
+
 * imports
+
 ```
 // default imported and given a name
 import ImportedNinja from "Ninja.js";
 
-// imports additional to default, with destructuring
+// import additional to default, with destructuring
 import {compareNinjas} from "Ninja.js";
 ```
 
