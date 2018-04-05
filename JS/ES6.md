@@ -158,30 +158,15 @@ console.log(maple1 instanceof Tree); // -> true
 * a providing module must export its public interface 
 
 ```
-export const message = "Hello";  // direct export
-export function sayHiToNinja() {
-  return message + " " + ninja;
-}
+// direct exports
+export const message = "Hello"; 
+export function sayHiToNinja() { return message + " " + ninja; }
 
-export { sayHi as sayHello }; // exporting and aliasing
+// aliasing export
+export { sayHi as sayHello }; 
 
-
-OR
-
-export { message, sayHiToNinja }; // using object literal shorthand
-
-OR
-
-export default class Ninja { constructor(name){ // using default export
-    this.name = name;
-  }
-} 
-
-AND 
-
-export function compareNinjas(ninja1, ninja2){ // additional exports possible with default
-  return ninja1.name === ninja2.name;
-}
+// exporting with object literal shorthand
+export { message, sayHiToNinja }; 
 ```
 
 * a using module must import what it needs
@@ -194,11 +179,30 @@ OR
 
 import * as ninjaModule from "Ninja.js"; // using * notation and alias
 console.log(ninjaModule.message);
+```
 
-OR
+### default module exports & imports
 
-import ImportedNinja from "Ninja.js"; // importing default and giving it a name
-import {compareNinjas} from "Ninja.js"; // additional import, using destructuring
+* exports
+```
+// default export
+export default class Ninja { constructor(name){ 
+    this.name = name;
+  }
+} 
+
+// additional exports possible with default
+export function compareNinjas(ninja1, ninja2){ 
+  return ninja1.name === ninja2.name;
+}
+```
+* imports
+```
+// default imported and given a name
+import ImportedNinja from "Ninja.js";
+
+// imports additional to default, with destructuring
+import {compareNinjas} from "Ninja.js";
 ```
 
 ## promise
