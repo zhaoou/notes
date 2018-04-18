@@ -170,28 +170,6 @@ class NameForm extends React.Component {
 - componentWillReceiveProps()
 - it is convinient to have all AJAX calling functions in one place
 
-### Router
-- creates links
-- manages URLs
-- BrowserRouter: listens to URL changes and renders the UI
-- in index.js add `import { BrowserRouter } from 'react-router-dom'`
-- in index.js wrapp app `<BrowserRouter><App /></BrowserRouter>` // enables URL listening
-- `<Link/>`- clicking on a link tells BrowserRouter to update URL.
-- `<Link to="/create"/>`
-```
-<Link to={{
-  pathname: '/courses',
-  search: '?sort=name',
-  hash: '#the-hash',
-  state: { fromDashboard: true }    }}> Courses </Link>
-```
-- Routers looks at URL and renders UI if url match is found
-```
-<Route exact path="/" render={ ()=> (<SomeComponent/>) } />
-<Route path="/create" component={SomeComponent} />
-```
-- `history.push("/");` forces the app to go to the main route => router will render whatever component is mapped to `"/"`
-
 ### Getting Started
 - create-react-app contacts
 - cd contacts
