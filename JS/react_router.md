@@ -86,4 +86,15 @@ let Home = ({match}) => (<h1> Hello {match.params.name}</h1>);
 
 ```
 
+### Route props
+
+- any component rendered inside of Route component get 3 props: match, location, and history
+- if we need this props in a component NOT rendered inside of a Route, use `withRouter` function
+```
+// accepts and uses history prop to create a button pointing home
+let Routes = ({history}) => (<button onClick={() => history.push("/")}>home</button>)
+Routes = withRouter(Routes);
+```
+
+
 - `history.push("/");` forces the app to go to the main route => router will render whatever component is mapped to `"/"`
