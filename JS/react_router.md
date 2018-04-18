@@ -1,23 +1,23 @@
-## Router
+# Router
 
-### foundations
+## Foundations
 
 - router mimics browser functionality by watching and modifing URL address
 - BrowserRouter: listens to URL changes and renders the UI
 
-### installation
+## Installation
 
 - `import { BrowserRouter } from 'react-router-dom'`
 - Wrapp app `<BrowserRouter><App /></BrowserRouter>`
 
-### Key components
+## Key components
 
 ```
 import {BrowserRouter, Switch, Route, Link, NavLink} from "react-router-dom";
 ```
 
 
-#### BrowserRouter
+### BrowserRouter
 
 - enables routing
 
@@ -28,7 +28,7 @@ ReactDOM.render(
 ```
 
 
-#### Route
+### Route
 
 - connects URL with component
 - can have one of (render or component) attributes
@@ -39,7 +39,7 @@ ReactDOM.render(
 ```
 
 
-#### Switch
+### Switch
 
 - prevents 'fallthrough' - rendering of two mutually exclusive components
 
@@ -51,7 +51,7 @@ ReactDOM.render(
 ```
 
 
-#### Link
+### Link
 
 - clicking Link tells BrowserRouter to update URL
 - `<Link to="/create"/>`
@@ -65,7 +65,7 @@ ReactDOM.render(
 ```
 
 
-#### NavLink
+### NavLink
 
 - a link designed for navigation
 - accepts default and active styles
@@ -75,6 +75,15 @@ let defaultS = {margin: "5px"};
 `<NavLink exact activeStyle={active} style={defaultS} to="/">home</NavLink>`
 ```
 
+## Dynamic routing
 
+- enables path variables
+
+```
+<Route path="/:name" component={Home} />
+
+let Home = ({match}) => (<h1> Hello {match.params.name}</h1>);
+
+```
 
 - `history.push("/");` forces the app to go to the main route => router will render whatever component is mapped to `"/"`
