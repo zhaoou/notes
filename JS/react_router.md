@@ -103,6 +103,21 @@ Routes = withRouter(Routes);
 
 - if we need to pass more then just route props to our component, we can use `render` attribute of Route
 
+```
+let users = ["John", "Peter", "Bjorn"];
+
+<Route path="/users/:name" render={props =>(
+  <Users {...props} items={users} />
+)} />
 
 
+// we get props given by Router and items given by us
+let Users = (props) => (<div> 
+                          <h1> {JSON.stringify(props)} </h1>
+                          <ul>
+                            { props.items.map( (e, i) => (<li key={i}> {e} </li>) ) }
+                          </ul>
+                        </div>);
+
+```
 
