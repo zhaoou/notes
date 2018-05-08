@@ -1,12 +1,16 @@
 # Mysql setup
 
 * Install mysql
+```
+apt-get update
+apt-get install mysql-server
+```
 
 * Edit /etc/mysql/mysql.conf.d/mysqld.cnf to listen on 0.0.0.0 instead of 127.0.0.1
 
 * Sign in into mysql `mysql -u root -p` and run:
 ```
-CREATE USER 'newuser’@'%' IDENTIFIED BY 'password’;
+CREATE USER 'newuser'@'%' IDENTIFIED BY 'password';
 ```
 * Created schema for the application:
 ```
