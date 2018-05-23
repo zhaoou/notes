@@ -21,6 +21,7 @@
 * gives auth code
 * has a list of scopes(permissions)
 
+## Flows
 
 ### Authorization code flow:
 
@@ -53,3 +54,35 @@ __|___________________________________________________|
   RESOURCE SERVER
 
 ```
+
+
+### Implicit flow
+
+* no back-end
+* no back channels
+* get token right away
+* ex. SPA
+
+### Resource owner password credentials flow
+
+* back channels only
+
+### Client credentials flow
+
+* back channels only
+
+## Oauth2 is for Authorization
+
+* can't get user info
+* no common scopes
+
+## OpenID Connect is for Authentication
+
+* OpenID was added to OAuth2 to provide authentication
+* adds id_token in JWT with user info
+* user_info endpoint to get additional information
+* standardised scopes
+* standardised implementation
+
+
+
