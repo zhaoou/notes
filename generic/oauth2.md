@@ -28,10 +28,28 @@
 
 ```
 
-CLIENT APP                            AUTH SERVER
-
-
-
-RESOURCE SERVER
+CLIENT APP                                         AUTH SERVER    RESOURCE OWNER
+  |                                                   |
+  |  -------(client_id, callback, scopes)--------->   |             
+  |                                                   |   ----> Allow scopes?
+  |                                                   |   <---- Yes
+  |                                                   |
+  |  <------(callback with auth_code)--------------   |
+  |                                                   |      
+  |                                                   |      
+  |  -------(secret_key, auth_code)--------------->   |                                                    
+  |                                                   |      
+  |                                                   |      
+  |  <------(access_token(bearer), scopes)---------   |
+  |                                                   |
+__|___________________________________________________|
+   \
+     \
+(token with scopes)
+        \  
+         |
+         |
+         |
+  RESOURCE SERVER
 
 ```
