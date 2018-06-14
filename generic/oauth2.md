@@ -30,11 +30,11 @@
 ```
 
 CLIENT APP                                         AUTH SERVER    RESOURCE OWNER
-  |                                                   |
-  |  -------(client_id, callback, scopes)------->>>   |             
-  |                                                   |   ----> Allow scopes?
-  |                                                   |   <---- Yes
-  |                                                   |
+  |                                                   |           |
+  |  -------(client_id, callback, scopes)------->>>   |           |
+  |                                                   |   ---->>> | Allow scopes?
+  |                                                   |   <<<---- | Yes
+  |                                                   |           
   |  <<<----(callback with auth_code)--------------   |
   |                                                   |                FRONT CHANNELS ABOVE
 ----------------------------------------------------------------------------------------------  
