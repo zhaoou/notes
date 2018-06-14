@@ -36,9 +36,9 @@ CLIENT APP                                         AUTH SERVER    RESOURCE OWNER
   |                                                   |   <---- Yes
   |                                                   |
   |  <<<----(callback with auth_code)--------------   |
-  |                                                   |                                   FRONT CHANNELS ABOVE
-------------------------------------------------------------------------------------------------------------------  
-  |                                                   |                                   BACK CHANNELS BELOW 
+  |                                                   |                FRONT CHANNELS ABOVE
+----------------------------------------------------------------------------------------------  
+  |                                                   |                BACK CHANNELS BELOW 
   |  -------(secret_key, auth_code)------------->>>   |                                                    
   |                                                   |      
   |                                                   |      
