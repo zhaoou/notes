@@ -44,15 +44,18 @@ CLIENT APP                                         AUTH SERVER    RESOURCE OWNER
   |                                                   |      
   |  <<<----(access_token(bearer), scopes)---------   |
   |                                                   |
-__|___________________________________________________|
-   \
-     \
-(token with scopes)
-        \  
-         |
-         |
-         |
-  RESOURCE SERVER
+__|___________________________________________________|  <-- AUTH CODE FLOW IS DONE
+  |
+  |
+  |
+  |                            RESOURCE SERVER
+  |                                 |
+  |  -----(token with scopes)--->>> |
+  |                                 |
+  |  <<<---(customer owned data)--- |
+  |                                 |
+  
+        
 
 ```
 
