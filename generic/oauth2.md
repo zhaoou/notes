@@ -31,17 +31,18 @@
 
 CLIENT APP                                         AUTH SERVER    RESOURCE OWNER
   |                                                   |
-  |  -------(client_id, callback, scopes)--------->   |             
+  |  -------(client_id, callback, scopes)------->>>   |             
   |                                                   |   ----> Allow scopes?
   |                                                   |   <---- Yes
   |                                                   |
-  |  <------(callback with auth_code)--------------   |
+  |  <<<----(callback with auth_code)--------------   |
+  |                                                   |                                   FRONT CHANNELS ABOVE
+------------------------------------------------------------------------------------------------------------------  
+  |                                                   |                                   BACK CHANNELS BELOW 
+  |  -------(secret_key, auth_code)------------->>>   |                                                    
   |                                                   |      
   |                                                   |      
-  |  -------(secret_key, auth_code)--------------->   |                                                    
-  |                                                   |      
-  |                                                   |      
-  |  <------(access_token(bearer), scopes)---------   |
+  |  <<<----(access_token(bearer), scopes)---------   |
   |                                                   |
 __|___________________________________________________|
    \
