@@ -2,5 +2,4 @@
 * ~~Watch and code: Practical JS: Nov 22 - 25~~~
 * ~~SSP: Nov 27th - Jan 7th~~
 * ~~ES6 with babel, npm and node: build a simple MVC app ( FEWD BigNerd )~~
-* d3.js udemy
-* react udemy/udacity
+* ~~d3.js~~
