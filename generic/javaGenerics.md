@@ -22,6 +22,19 @@ static <T> List<T> singleton(T item) {
                                \-- generic parameter used
           
 ```
+
+another example:
+
+```
+static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
+    for (T o : a) {
+        c.add(o);
+    }
+}
+```
+
+When we are calling this method, it will be parametarized by the type of arguments to the method: array and collection.
+
 # generic classes and interfaces
 
 ```
@@ -68,6 +81,8 @@ Generic wildcard `?` allows us to pass Collection containing any types
 Passing a collection doesn't allow us to modify it, since we don't know the real type of the objects in the collection, and can potentially violate type safety by addding objects of incorrect type.
 
 > Every time we are using wildcards, we lose ability to modify that collection
+> Use bounds where polimorphic behavior is needed
+
 
 # complex bounds
 
