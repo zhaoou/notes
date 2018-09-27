@@ -14,25 +14,33 @@ List<Object> objects = strings;
 
 # generic methods
 
+```
+          /-- generic parameter declared
+         /
+static <T> List<T> singleton(T item) {
+                 \____________\
+                               \-- generic parameter used
+          
+```
 # generic classes and interfaces
 
 ```
-                         |<--- type parameter
-                         |
+                          /-- type parameter
+                         /
 public class ArrayList<Item> implements List<Item> {
   public Item get(int i) { ... }
   public boolean add(Item x) { ... }
                        \
-                        |<-- use of the parameter
+                        \-- use of the parameter, Item will be replaced by the actual type
 
 
 
-                         |<--- type parameters
+                         /-- type parameters
                         / \
 public interface Map<Key, Value> {
   Value get(Key x);
               \
-               |<-- use of the parameter
+               \-- use of the parameter, Key will be replaced by the actual type
 
 ```
 # bounds
