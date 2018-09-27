@@ -44,5 +44,40 @@ public interface Map<Key, Value> {
 
 ```
 # bounds
+
+Because of strict type safety rules, this code will accept List ONLY of Shapes, not any subclass or superclass of Shape.
+
+```
+public void drawAll(List<Shape> shapes) {
+    for (Shape s: shapes) {
+        s.draw(this);
+   }
+}
+```
+
+But we often need to process a collection of things, like this:
+```
+void printCollection(Collection<?> c) {
+    for (Object e : c) {
+        System.out.println(e);
+    }
+}
+```
+Generic wildcard `?` allows us to pass Collection containing any types
+
+Passing a collection doesn't allow us to modify it, since we don't know the real type of the objects in the collection, and can potentially violate type safety by addding objects of incorrect type.
+
+> Every time we are using wildcards, we lose ability to modify that collection
+
 # complex bounds
+
+If a method, by design, can only work **at or below a certain type(class or interface) level**, we can use upper bounded wildcard:
+
+```
+public void drawAll(List<? extends Shape> shapes)
+```
+
+Upper bounded wildcards are inclusive, this method can accept any List of Shapes, in addition to any List of any subtypes of Shape.
+
+
 # erasure
