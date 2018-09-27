@@ -1,5 +1,6 @@
 # DS review
 
+https://www.youtube.com/watch?v=iOq5kSKqeR4
 
 ## Asymptotic complexity: time and space
 Asymptotic complexity theory helps us compare different algorithms' time and space requirements, as size of the problem (N) grows.
