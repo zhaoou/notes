@@ -1,5 +1,5 @@
-# type parameters vs. type argument
-
+Generics is compile time type safety mechanism in Java.
+Type information is erased during compilation.
 
 # generic subtyping
 
@@ -10,7 +10,10 @@ List<Object> objects = strings;
 ```
 `List<Object> objects = strings;` is illegal, because that would make two references to the same collection, and we could put Objects using `objects` reference and try to get them as Strings via `string` reference. This would violate type safety.
 
+This is legal in arrays, but arrays have runtime type checking and throw ArrayStoreException if we try to store wrong type.
+
 > `if Foo extends Bar, G<Foo> is not a subtype of G<Bar>!`
+> Arrays have run time type safety checks, unlike collections.
 
 # generic methods
 
@@ -35,7 +38,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 
 When we are calling this method, it will be parametarized by the type of arguments to the method: array and collection.
 
-# generic classes and interfaces
+# generic type parameters
 
 ```
                           /-- type parameter
@@ -56,9 +59,11 @@ public interface Map<Key, Value> {
                \-- use of the parameter, Key will be replaced by the actual type
 
 ```
-# bounds
+> Use type parameters when there is a relationship between types we need worry about
 
-Because of strict type safety rules, this code will accept List ONLY of Shapes, not any subclass or superclass of Shape.
+# generic type bounds
+
+Because of strict type safety rules, this code will accept List ONLY of Shapes, not any sub or superclass of Shape.
 
 ```
 public void drawAll(List<Shape> shapes) {
@@ -94,5 +99,19 @@ public void drawAll(List<? extends Shape> shapes)
 
 Upper bounded wildcards are inclusive, this method can accept any List of Shapes, in addition to any List of any subtypes of Shape.
 
+Examine:
+```
+class Collections {
+    public static <T> void copy1(List<T> dest, List<? extends T> src) {}
+    public static <T, S extends T> void copy2(List<T> dest, List<S> src) {}
+}
+```
+Both methods achieve the same type constrain, but in copy2, S is only used for limiting type of src, hence copy1 is preferrable here.
 
-# erasure
+
+If a method, by design, can only work **at or above a certain type level**, we can use lower bounded wildcard:
+
+```
+static <T> void fill(List<? super T> L, T x) { ... }
+```
+This means that L can be a List<Q> as long as Q is higher in the heirachy than T. T must be a subclass of Q.
