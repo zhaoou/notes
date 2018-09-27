@@ -1,3 +1,0 @@
-
-* generic methods
-* generic classes
