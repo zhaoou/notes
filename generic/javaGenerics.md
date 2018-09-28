@@ -13,6 +13,7 @@ List<Object> objects = strings;
 This is legal in arrays, but arrays have runtime type checking and throw ArrayStoreException if we try to store wrong type.
 
 > `if Foo extends Bar, G<Foo> is not a subtype of G<Bar>!`
+
 > Arrays have run time type safety checks, unlike collections.
 
 # generic methods
@@ -59,7 +60,7 @@ public interface Map<Key, Value> {
                \-- use of the parameter, Key will be replaced by the actual type
 
 ```
-> Use type parameters when there is a relationship between types we need worry about
+> Use type parameters when there is a relationship between types we need to worry about
 
 # generic type bounds
 
@@ -86,6 +87,7 @@ Generic wildcard `?` allows us to pass Collection containing any types
 Passing a collection doesn't allow us to modify it, since we don't know the real type of the objects in the collection, and can potentially violate type safety by addding objects of incorrect type.
 
 > Every time we are using wildcards, we lose ability to modify that collection
+
 > Use bounds where polimorphic behavior is needed
 
 
