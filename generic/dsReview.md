@@ -2,6 +2,9 @@
 
 https://www.youtube.com/watch?v=iOq5kSKqeR4
 
+https://www.youtube.com/watch?v=jUyQqLvg8Qw&t=2419s
+
+
 ## Asymptotic complexity: time and space
 Asymptotic complexity theory helps us compare different algorithms' time and space requirements, as size of the problem (N) grows.
 
