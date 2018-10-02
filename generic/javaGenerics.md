@@ -1,10 +1,20 @@
 Generics is compile time type safety mechanism in Java.
 Type information is erased during compilation.
 
-# Covariant - type of collection changes with the type of its content
-# Invariant
+* Covariant - type of collection changes with the type of its content
+* Invariant - type of a collection doesn't change with the type of its content
 
-# generic subtyping
+**Java arrays are covariant and collections are invariant.**
+
+
+# Covariance
+
+Java arrays are covariant. Type of Integer[] is different from String[]. They are type checked at runtime and throw ArrayStoreException if we try to store wrong type.
+
+> Arrays have run time type safety checks, unlike collections.
+
+
+# Invariance
 
 Given: 
 ```
@@ -13,13 +23,12 @@ List<Object> objects = strings;
 ```
 `List<Object> objects = strings;` is illegal, because that would make two references to the same collection, and we could put Objects using `objects` reference and try to get them as Strings via `string` reference. This would violate type safety.
 
-This is legal in arrays, but arrays have runtime type checking and throw ArrayStoreException if we try to store wrong type.
 
 > `if Foo extends Bar, G<Foo> is not a subtype of G<Bar>!`
+> We can add exceptions to invariance in collections.
 
-> Arrays have run time type safety checks, unlike collections.
 
-# generic methods
+# Reintroducing varience: generic methods
 
 ```
           /-- generic parameter declared
@@ -42,7 +51,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 
 When we are calling this method, it will be parametarized by the type of arguments to the method: array and collection.
 
-# generic type parameters
+# Reintroducing varience: type parameters
 
 ```
                           /-- type parameter
@@ -65,7 +74,7 @@ public interface Map<Key, Value> {
 ```
 > Use type parameters when there is a relationship between types we need to worry about
 
-# generic type bounds
+# Reintroducing varience: type bounds
 
 Because of strict type safety rules, this code will accept List ONLY of Shapes, not any sub or superclass of Shape.
 
@@ -94,7 +103,9 @@ Passing a collection doesn't allow us to modify it, since we don't know the real
 > Use bounds where polimorphic behavior is needed
 
 
-# complex bounds
+# Reintroducing varience: complex type bounds
+
+** Extend to get, Super to put **
 
 If a method, by design, can only work **at or below a certain type(class or interface) level**, we can use upper bounded wildcard:
 
@@ -120,7 +131,8 @@ If a method, by design, can only work **at or above a certain type level**, we c
 static <T> void fill(List<? super T> L, T x) { ... }
 ```
 This means that L can be a List<Q> as long as Q is higher in the heirachy than T. T must be a subclass of Q.
-          
+     
+     
           
 https://www.youtube.com/watch?v=j82KHOL2FT8
 
