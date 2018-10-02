@@ -28,7 +28,7 @@ List<Object> objects = strings;
 > We can add exceptions to invariance in collections.
 
 
-# Reintroducing varience: generic methods
+# Reintroducing variance: generic methods
 
 ```
           /-- generic parameter declared
@@ -51,7 +51,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 
 When we are calling this method, it will be parametarized by the type of arguments to the method: array and collection.
 
-# Reintroducing varience: type parameters
+# Reintroducing variance: type parameters
 
 ```
                           /-- type parameter
@@ -74,7 +74,7 @@ public interface Map<Key, Value> {
 ```
 > Use type parameters when there is a relationship between types we need to worry about
 
-# Reintroducing varience: type bounds
+# Reintroducing variance: type bounds
 
 Because of strict type safety rules, this code will accept List ONLY of Shapes, not any sub or superclass of Shape.
 
@@ -103,7 +103,7 @@ Passing a collection doesn't allow us to modify it, since we don't know the real
 > Use bounds where polimorphic behavior is needed
 
 
-# Reintroducing varience: complex type bounds
+# Reintroducing variance: complex type bounds
 
 ** Extend to get, Super to put **
 
