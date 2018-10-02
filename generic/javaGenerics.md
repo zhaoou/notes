@@ -11,6 +11,11 @@ Type information is erased during compilation.
 
 Java arrays are covariant. Type of Integer[] is different from String[]. They are type checked at runtime and throw ArrayStoreException if we try to store wrong type.
 
+```
+Integer[] integers = new Integer[5];
+Object[] objects = integers;
+objects[0] = "string";      // Allowed at compile time, breaks during runtime.
+```
 > Arrays have run time type safety checks, unlike collections.
 
 
