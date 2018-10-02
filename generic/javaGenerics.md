@@ -117,7 +117,7 @@ Passing a collection doesn't allow us to modify it, since we don't know the real
 
 # Reintroducing variance: complex type bounds with wildcards
 
-** Extend to get, Super to put **
+**Extend to get, Super to put**
 
 If a method, by design, can only work **at or below a certain type(class or interface) level**, we can use upper bounded wildcard:
 
