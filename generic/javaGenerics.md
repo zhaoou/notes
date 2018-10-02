@@ -33,7 +33,13 @@ List<Object> objects = strings;
 > We can add exceptions to invariance in collections.
 
 
-# Reintroducing variance: generic methods
+
+# Reintroducing variance: type parameters in generic methods
+
+When we are calling a generic method, it will be parametarized by the type of arguments to the method.
+
+We declare type parameter, like this`<T>` and use it later like this `T`.
+
 
 ```
           /-- generic parameter declared
@@ -54,9 +60,10 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 }
 ```
 
-When we are calling this method, it will be parametarized by the type of arguments to the method: array and collection.
 
-# Reintroducing variance: type parameters
+
+# Reintroducing variance: type parameters in generic classes
+
 
 ```
                           /-- type parameter
@@ -79,7 +86,7 @@ public interface Map<Key, Value> {
 ```
 > Use type parameters when there is a relationship between types we need to worry about
 
-# Reintroducing variance: type bounds
+# Reintroducing variance: type bounds with wildcards
 
 Because of strict type safety rules, this code will accept List ONLY of Shapes, not any sub or superclass of Shape.
 
@@ -108,7 +115,7 @@ Passing a collection doesn't allow us to modify it, since we don't know the real
 > Use bounds where polimorphic behavior is needed
 
 
-# Reintroducing variance: complex type bounds
+# Reintroducing variance: complex type bounds with wildcards
 
 ** Extend to get, Super to put **
 
@@ -135,7 +142,7 @@ If a method, by design, can only work **at or above a certain type level**, we c
 ```
 static <T> void fill(List<? super T> L, T x) { ... }
 ```
-This means that L can be a List<Q> as long as Q is higher in the heirachy than T. T must be a subclass of Q.
+This means that L can be a List<Q> as long as Q is higher in the heirarchy than T. T must be a subclass of Q.
      
      
           
