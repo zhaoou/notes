@@ -1,6 +1,9 @@
 Generics is compile time type safety mechanism in Java.
 Type information is erased during compilation.
 
+# Covariant - type of collection changes with the type of its content
+# Invariant
+
 # generic subtyping
 
 Given: 
@@ -117,3 +120,7 @@ If a method, by design, can only work **at or above a certain type level**, we c
 static <T> void fill(List<? super T> L, T x) { ... }
 ```
 This means that L can be a List<Q> as long as Q is higher in the heirachy than T. T must be a subclass of Q.
+          
+          
+https://www.youtube.com/watch?v=j82KHOL2FT8
+
