@@ -1,3 +1,5 @@
+# Generics
+
 Generics is compile time type safety mechanism in Java.
 Type information is erased during compilation.
 
