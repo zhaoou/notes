@@ -110,7 +110,7 @@ List<String> strings = new ArrayList<>(); // diamond syntax
 ```
 
 
-## Reintroducing variance: type bounds with wildcards
+## Reintroducing variance: wildcards
 
 ### Wildcard
 
@@ -134,9 +134,9 @@ void printCollection(Collection<?> c) {
 ```
 Generic wildcard `?` allows us to pass Collection containing any types of Objects.
 
-### Type bounds
+### Bounded wildcards
 
-**Extend to get, super to put**
+> Extend to get, super to put
 
 We can use **upper bounded wildcards to read** elements from a collection:
 
@@ -146,6 +146,23 @@ public void drawAll(List<? extends Shape> shapes)
 
 Wildcards are inclusive, i.e. this method can accept any List of Shapes, in addition to any List of any subtypes of Shape.
 
+
+We can use **lower bounded wildcard to add** elements to a collection:
+
+```
+static void fill(List<? super Person> list) { ... }
+```
+
+This `list` can be a List<Q> as long as Q is higher in the heirarchy than Person. Or, Person must be a subclass of Q.
+          
+We will be using `Person` as a reference inside of this method, and can add `Person` to the collection, which is OK, by substitution principle.
+
+**When we are using wildcards for bounds, we are preserving type safety. Reading from a collection, we are using a supertype as a reference to each element. Writing to a collection, we are using a subtype of elements of that collection. This guarantees that all other references to this collection remain typesafe via Liskov substituion principle.**
+
+## Type parameters vs. wildcards
+
+We can combine type parameters and wildcards.
+
 Examine:
 ```
 class Collections {
@@ -154,20 +171,6 @@ class Collections {
 }
 ```
 Both methods achieve the same type constrain, but in copy2, S is only used for limiting type of src, hence copy1 is preferrable here.
-
-
-We can use **lower bounded wildcard to add** elements to a collection:
-
-```
-static <T> void fill(List<? super T> list, T x) { ... }
-```
-
-This means that `list` can be a List<Q> as long as Q is higher in the heirarchy than T. Or, T must be a subclass of Q.
-          
-We will be using T as a reference to elements inside of this method, and can add T to the collection, which is OK, by substitution principle.
-     
-**When we are using wildcards for bounds, we are preserving type safety. Reading from a collection, we are using a supertype as a reference to each element. Writing to a collection, we are using a subtype of elements of that collection. This guarantees that all other references to this collection remain typesafe via Liskov substituion principle.**
-
 
           
 https://www.youtube.com/watch?v=j82KHOL2FT8
