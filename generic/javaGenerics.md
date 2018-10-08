@@ -36,7 +36,9 @@ List<Object> objects = strings;
 
 
 
-# We can add exceptions to invariance in collections
+# We can add exceptions to invariance in collections, to make our code more flexible, and keep type safety.
+
+**we have two main mechanisms to reintroduce variance: type parameters and wildcards**
 
 ## Reintroducing variance: type parameters in generic methods
 
@@ -64,6 +66,10 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 }
 ```
 
+Occasionally, JVM cannot infer type parameter, or we decide to be explicit, and we are allowed to pass type argument to a generic method like this:
+```
+Class.<Type>methodInvocation(Type a);
+```
 
 
 ## Reintroducing variance: type parameters in generic classes
@@ -88,7 +94,15 @@ public interface Map<Key, Value> {
                \-- use of the parameter, Key will be replaced by the actual type
 
 ```
-> Use type parameters when there is a relationship between types we need to worry about
+When we are calling a constructor, type arguments are passed to the class:
+```
+new HashSet<String, Long>();
+```
+or inferred from reference variable:
+```
+List<String> strings = new ArrayList<>(); // diamond syntax
+```
+
 
 ## Reintroducing variance: type bounds with wildcards
 
@@ -124,7 +138,7 @@ We can use **upper bounded wildcards to read** elements from a collection:
 public void drawAll(List<? extends Shape> shapes)
 ```
 
-Upper bounded wildcards are inclusive, this method can accept any List of Shapes, in addition to any List of any subtypes of Shape.
+Wildcards are inclusive, i.e. this method can accept any List of Shapes, in addition to any List of any subtypes of Shape.
 
 Examine:
 ```
