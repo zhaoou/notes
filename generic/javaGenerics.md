@@ -32,13 +32,13 @@ List<Object> objects = strings;
 ```
 `List<Object> objects = strings;` is illegal, because that would make two references to the same collection, and we could put Objects using `objects` reference and try to get them as Strings via `string` reference. This would violate type safety.
 
-
 > `if Foo extends Bar, G<Foo> is not a subtype of G<Bar>!`
-> We can add exceptions to invariance in collections.
 
 
 
-# Reintroducing variance: type parameters in generic methods
+# We can add exceptions to invariance in collections
+
+## Reintroducing variance: type parameters in generic methods
 
 When we are calling a generic method, it will be parametarized by the type of arguments to the method.
 
@@ -66,7 +66,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 
 
 
-# Reintroducing variance: type parameters in generic classes
+## Reintroducing variance: type parameters in generic classes
 
 
 ```
@@ -90,7 +90,9 @@ public interface Map<Key, Value> {
 ```
 > Use type parameters when there is a relationship between types we need to worry about
 
-# Reintroducing variance: type bounds with wildcards
+## Reintroducing variance: type bounds with wildcards
+
+### Wildcard
 
 Because of strict type safety rules, this code will accept List ONLY of Shapes, not any sub or superclass of Shape.
 
@@ -110,20 +112,13 @@ void printCollection(Collection<?> c) {
     }
 }
 ```
-Generic wildcard `?` allows us to pass Collection containing any types
+Generic wildcard `?` allows us to pass Collection containing any types of Objects.
 
-Passing a collection doesn't allow us to modify it, since we don't know the real type of the objects in the collection, and can potentially violate type safety by addding objects of incorrect type.
+### Type bounds
 
-> Every time we are using wildcards, we lose ability to modify that collection
+**Extend to get, super to put**
 
-> Use bounds where polimorphic behavior is needed
-
-
-# Reintroducing variance: complex type bounds with wildcards
-
-**Extend to get, Super to put**
-
-If a method, by design, can only work **at or below a certain type(class or interface) level**, we can use upper bounded wildcard:
+We can use **upper bounded wildcards to read** elements from a collection:
 
 ```
 public void drawAll(List<? extends Shape> shapes)
@@ -141,14 +136,19 @@ class Collections {
 Both methods achieve the same type constrain, but in copy2, S is only used for limiting type of src, hence copy1 is preferrable here.
 
 
-If a method, by design, can only work **at or above a certain type level**, we can use lower bounded wildcard:
+We can use **lower bounded wildcard to add** elements to a collection:
 
 ```
-static <T> void fill(List<? super T> L, T x) { ... }
+static <T> void fill(List<? super T> list, T x) { ... }
 ```
-This means that L can be a List<Q> as long as Q is higher in the heirarchy than T. T must be a subclass of Q.
+
+This means that `list` can be a List<Q> as long as Q is higher in the heirarchy than T. Or, T must be a subclass of Q.
+          
+We will be using T as a reference to elements inside of this method, and can add T to the collection, which is OK, by substitution principle.
      
-     
+**When we are using wildcards for bounds, we are preserving type safety. Reading from a collection, we are using a supertype as a reference to each element. Writing to a collection, we are using a subtype of elements of that collection. This guarantees that all other references to this collection remain typesafe via Liskov substituion principle.**
+
+
           
 https://www.youtube.com/watch?v=j82KHOL2FT8
 
