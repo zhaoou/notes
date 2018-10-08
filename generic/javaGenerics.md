@@ -2,7 +2,11 @@ Generics is compile time type safety mechanism in Java.
 Type information is erased during compilation.
 
 * Covariant - type of collection changes with the type of its content
+
+`Object[] ray = new Integer[5];// Object[] is a supertype of Integer[]` 
 * Invariant - type of a collection doesn't change with the type of its content
+
+`List<Object> objects = new ArrayList<String>();// ERROR: List<Object> is NOT a supertype of ArrayList<String>`
 
 **Java arrays are covariant and collections are invariant.**
 
