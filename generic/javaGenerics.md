@@ -75,6 +75,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T> c) {
 Occasionally, JVM cannot infer type parameter, or we decide to be explicit, and we are allowed to pass type argument to a generic method like this:
 ```
 Class.<Type>methodInvocation(Type a);
+Lists.<Integer>toList();
 ```
 
 
@@ -153,7 +154,7 @@ We can use **lower bounded wildcard to add** elements to a collection:
 static void fill(List<? super Person> list) { ... }
 ```
 
-This `list` can be a List<Q> as long as Q is higher in the heirarchy than Person. Or, Person must be a subclass of Q.
+This `list` can be a `List<Q>` as long as Q is higher in the heirarchy than Person. Or, Person must be a subclass of Q.
           
 We will be using `Person` as a reference inside of this method, and can add `Person` to the collection, which is OK, by substitution principle.
 
