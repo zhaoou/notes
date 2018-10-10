@@ -2,9 +2,9 @@
 
 ## Lambdas
 
-In Java, lambdas can only be used as an instance of a Functional interface.
+In Java, lambdas can only be used as an instance of a Functional interface. Functional interface is any interface that has only one abstract method. (SAM - single abstract method). Lambda expressions will be replaced by an object implementing that interface, with a method generated from the lambda expression.
 
-There are 6 important functional interfaces in Java:
+Additonally, there are 6 important functional interfaces added to Java:
 
 #### 1) Predicate\<T>- takes an instance of T and returns boolean
 
