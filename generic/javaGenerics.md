@@ -1,7 +1,18 @@
 # Generics
 
-Generics is compile time type safety mechanism in Java.
-Type information is erased during compilation.
+
+:zap:
+
+**Generics remove variance to preserve type safety. We slowly relax this restriction using type paramets and wildcards, while preserving type safety.**
+
+When we are using **wildcards** for bounds, we are preserving type safety. Reading from a collection, we are using a supertype as a reference to each element. Writing to a collection, we are using a subtype of elements of that collection. This guarantees that all other references to this collection remain typesafe via Liskov substituion principle.
+
+**Type parameters** allow us to create methods and classes that can be used to hold, or operate on, various other types. When we want to use these, generic, classes and methods we need to pass them type information as a parameter.
+
+:rocket: 
+
+Generics is a compile time type safety mechanism in Java.
+Type information is erased and casts are inserted during compilation.
 
 
 * Covariant - type of collection changes with the type of its content
