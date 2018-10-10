@@ -6,6 +6,10 @@ apt-get update
 apt-get install mysql-server
 ```
 
+* run secure installation script
+```
+sudo mysql_secure_installation
+```
 * Edit /etc/mysql/mysql.conf.d/mysqld.cnf to listen on 0.0.0.0 instead of 127.0.0.1
 
 * Sign in into mysql `mysql -u root -p` and run:
