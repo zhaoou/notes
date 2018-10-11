@@ -114,7 +114,7 @@ public interface Map<Key, Value> {
 ```
 When we are calling a constructor, type arguments are passed to the class:
 ```
-new HashSet<String, Long>();
+new HashMap<String, Long>();
 ```
 or inferred from reference variable:
 ```
