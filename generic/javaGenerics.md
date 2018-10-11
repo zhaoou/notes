@@ -3,7 +3,7 @@
 
 :zap:
 
-**Generics remove variance to preserve type safety. We slowly relax this restriction using type paramets and wildcards, while preserving type safety.**
+**Generics remove variance to preserve type safety. We slowly relax this restriction using type parameters and wildcards, while preserving type safety.**
 
 When we are using **wildcards** for bounds, we are preserving type safety. Reading from a collection, we are using a supertype as a reference to each element. Writing to a collection, we are using a subtype of elements of that collection. This guarantees that all other references to this collection remain typesafe via Liskov substituion principle.
 
