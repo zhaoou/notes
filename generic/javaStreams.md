@@ -1,4 +1,4 @@
-# Streams in Java 8
+# Streams and lambdas
 
 ## Lambdas
 
@@ -26,8 +26,7 @@ Can be combined: `.andThen(Function<R,Q> func)`
 
 #### 6) BinaryOperator\<T>- takes two instances of T and returns one
 
-
-
+Broadly speaking, we can classify most interfaces into 6 categories above.
 
 
 ### Lambdas and variables
