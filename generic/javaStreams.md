@@ -2,6 +2,8 @@
 
 ## Lambdas
 
+**Lambdas define code to be used later.**
+
 In Java, lambdas can only be used as an instance of a Functional interface. Functional interface is any interface that has only one abstract method. (SAM - single abstract method). Lambda expressions will be replaced by an object implementing that interface, with a method generated from the lambda expression.
 
 Additonally, there are 6 important functional interfaces added to Java:
@@ -25,7 +27,12 @@ Can be combined: `.andThen(Function<R,Q> func)`
 #### 6) BinaryOperator\<T>- takes two instances of T and returns one
 
 
-### Lambda variables
+
+
+
+### Lambdas and variables
+
+All lambdas are defined in some method, i.e. a method is called, and inside of it we create a lambda expression.
 
 Inside of the lambda expression:
 
@@ -36,7 +43,12 @@ Inside of the lambda expression:
 **Free vs. Bound variables aside: `f(x) = x + y`, `x` is bound(to argument x) and `y` is free.**
 So in lambda, free variables are saved for future time, aka closure.
 
-## Using lambdas in streams
+
+
+
+
+
+## Lambdas and streams
 
 Streams are cool.
 This new feature allows us to use lambdas to operate on data, similar to functional composition in functional programming. I have been using them for several months now, and learned to love it. Combine streams, spring data, spring boot and you can enjoy development again!
