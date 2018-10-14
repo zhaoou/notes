@@ -31,30 +31,29 @@ Broadly speaking, we can classify most interfaces into 6 categories above.
 
 ### Lambdas and variables
 
-All lambdas are defined in some method, i.e. a method is called, and inside of it we create a lambda expression.
+1) All lambdas are defined in some method, i.e. a method is called, and inside of it we create a lambda expression.
 
-Inside of the lambda expression:
+2) Each new method call creates a new stackframe on a callstack.
 
-* We **can use effectively final local variables**.
+3) When method is done, it is removed and all local variables are lost.
 
-* We **can modify instance variables**.
+4) Free vs. Bound variables review: `f(x) = x + y`, `x` is bound(to argument x) and `y` is free. Free variable is usually defined outside of the scope of the function. For example in the stackframe defining the lambda.
 
-**Free vs. Bound variables aside: `f(x) = x + y`, `x` is bound(to argument x) and `y` is free.**
-So in lambda, free variables are saved for future time, aka closure.
+5) Lambdas are implemented as closures. A closure is an object, implementing one interface, has one method, and contains copies of all free variables, as they were available in the stackframe when that lambda was defined.
 
+6) To makes sure that copies of variable placed in a closure are correct, compiler forces us NOT to change those free variables after the lambda is defined. Only final or effectively final free variables can be used in lambdas.
 
+7) If we are using object reference variable in a lambda, it should be effectively final. We still can change the instance variables of that object. If we change object variables in a multithreaded environment, we can create problems if we don't use synchronisation.
 
+http://www.informit.com/articles/article.aspx?p=2303960&seqNum=7
 
 
 
 ## Lambdas and streams
 
-Streams are cool.
-This new feature allows us to use lambdas to operate on data, similar to functional composition in functional programming. I have been using them for several months now, and learned to love it. Combine streams, spring data, spring boot and you can enjoy development again!
+This new feature allows us to use lambdas to operate on data, similar to functional composition in functional programming.
 
-I noticed that readability and size of the code improved significantly, since I started using streams. There are some instances where it is not easy to rewrite older java code using streams, but generally it's been great!
-
-So what is a stream? Stream is a structure that allows one to create an expression that can be evaluated.
+So what is a stream? Stream is a lazy structure that allows us to create an expression that can be evaluated.
 
 There are **3 main** parts to any stream:
 
@@ -121,7 +120,7 @@ In this example strings are sorted by length in descending order. This feels a l
     // key, value.
 at the end of the stream.
 
-If you want a single result, we can use reduce function, or use IntSummaryStatistics class.
+If you want a single result, we can use reduce function, or use IntSummaryStatistics (or similar) class.
 
 Reduce takes an identity value and a function used to combine intermediate result of reduce and and element of the stream:
 
@@ -136,5 +135,3 @@ IntSummaryStatistics calculates average, max, min and sum.
 Returns an instance of IntSummaryStatistics containing the statistics.
 
 LongSummaryStatistics and DoubleSummaryStatistics are also provided.
-
-As always, this is just a high level overview that helps me reason about streams.
