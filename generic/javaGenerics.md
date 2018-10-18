@@ -23,6 +23,7 @@ List<Object> objects = new ArrayList<String>();// ERROR
 ```
 
 * Covariant - type of collection changes with the type of its content
+
 `Object[] ray = new Integer[5];// Object[] is a supertype of Integer[]` 
 
 * Contravariant - type of the collection is in reverse relationship with the type of its content.
