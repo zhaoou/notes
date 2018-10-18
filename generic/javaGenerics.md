@@ -60,7 +60,7 @@ List<Object> objects = strings;
 # Adding variance
 
 * We can add exceptions to invariance in collections, to make our code more flexible, and keep type safety.
-* we have two main mechanisms to reintroduce variance: *type parameters* and *wildcards*
+* we have two main mechanisms to reintroduce variance: **type parameters and wildcards**
 
 ## Reintroducing variance: type parameters in generic methods
 
