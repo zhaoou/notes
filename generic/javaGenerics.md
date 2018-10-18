@@ -14,15 +14,20 @@ When we are using **wildcards** for bounds, we are preserving type safety. Readi
 Generics is a compile time type safety mechanism in Java.
 Type information is erased and casts are inserted during compilation.
 
+Variance explains how a type of a collection works with a type of its elements.
 
-* Covariant - type of collection changes with the type of its content
-
-`Object[] ray = new Integer[5];// Object[] is a supertype of Integer[]` 
 * Invariant - type of a collection doesn't change with the type of its content
 ```
 List<Object> objects = new ArrayList<String>();// ERROR
 // List<Object> is NOT a supertype of ArrayList<String>
 ```
+
+* Covariant - type of collection changes with the type of its content
+`Object[] ray = new Integer[5];// Object[] is a supertype of Integer[]` 
+
+* Contravariant - type of the collection is in reverse relationship with the type of its content.
+> This is seen in `<? super Integer>` because we are inversing the relationship of types.
+
 
 **Java arrays are covariant and collections are invariant.**
 
