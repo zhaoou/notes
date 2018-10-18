@@ -58,7 +58,7 @@ List<Object> objects = strings;
 
 # Contravariance
 
-List<S> is considered to be a subtype of List<? super T> when S is a supertype of T.
+`List<S>` is considered to be a subtype of `List<? super T>` when S is a supertype of T.
 
 # Adding variance
 
