@@ -56,7 +56,9 @@ List<Object> objects = strings;
 
 > `if Foo extends Bar, G<Foo> is not a subtype of G<Bar>!`
 
+# Contravariance
 
+List<S> is considered to be a subtype of List<? super T> when S is a supertype of T.
 
 # Adding variance
 
