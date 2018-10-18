@@ -27,7 +27,8 @@ List<Object> objects = new ArrayList<String>();// ERROR
 `Object[] ray = new Integer[5];// Object[] is a supertype of Integer[]` 
 
 * Contravariant - type of the collection is in reverse relationship with the type of its content.
-> This is seen in `<? super Integer>` because we are inversing the relationship of types.
+
+This is seen in `<? super Integer>` because we are inversing the relationship of types.
 
 
 **Java arrays are covariant and collections are invariant.**
@@ -58,7 +59,13 @@ List<Object> objects = strings;
 
 # Contravariance
 
-`List<S>` is considered to be a subtype of `List<? super T>` when S is a supertype of T.
+`List<S>` is considered to be a subtype of `List<? super T>` but S is a supertype of T
+```
+   S       List<? super T>
+   |             |
+   |             |
+   T           List<S>
+```
 
 # Adding variance
 
