@@ -3,6 +3,9 @@
 * label - value that we will be predicting
 * training  set - subset of examples used for training
 * test set - subset of exampes used for testing (don't use training set to test!)
+* feature engineering - selection and merging of features to minimize loss
+
+> gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual prob- lems such as image classification.
 
 # Supervised vs Unsupervised
 
@@ -34,6 +37,14 @@ Gradient descent - iterative method to minimize loss:
 3) use euclidian or manhattan distance to calculate the distance
 
 
+### Support Vector Machine
+
+* decision boundary (hyperplance) is computed to maximize the margin (distances between clusters).
+
+### Neural Networks
+
+Each layer stores weights
+Backpropagation is used to optimize weights based on loss
 
 ## Unsupervised (clustering)
 
