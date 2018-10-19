@@ -4,6 +4,7 @@
 * training  set - subset of examples used for training
 * test set - subset of exampes used for testing (don't use training set to test!)
 * feature engineering - selection and merging of features to minimize loss
+* ReLU(Rectified Linear Unit) function: max(x | 0)
 
 > gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual prob- lems such as image classification.
 
