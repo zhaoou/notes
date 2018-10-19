@@ -5,6 +5,9 @@
 * test set - subset of exampes used for testing (don't use training set to test!)
 * feature engineering - selection and merging of features to minimize loss
 * ReLU(Rectified Linear Unit) function: max(x | 0)
+* Confusion matrix: matrix of True Positives True Negatives False Positives and False negatives
+* Sensitivity(recall) = TP / (TP + FN)
+* Specificity(precision) = TP / (TP + FP)
 
 > gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual prob- lems such as image classification.
 
