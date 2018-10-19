@@ -1,7 +1,8 @@
 * example - one instance, object of data
 * feature - one field or value from example
 * label - value that we will be predicting
-
+* training  set - subset of examples used for training
+* test set - subset of exampes used for testing (don't use training set to test!)
 
 # Supervised vs Unsupervised
 
@@ -16,11 +17,14 @@ Some algorithms that belong to this group:
 2) use that line to predict values of y
 
 Gradient descent - iterative method to minimize loss:
+
 1) pick and random line formula(hyperparameters)
 2) calculate loss in training data 
 3) adjust line formula by learning rate(step size)
 4) got to step 2
 
+* Stochastic gradient descent (SGD) - calculate gradient descent using one randomly chosen example from training set
+* Mini-batch SGD - choose a small batch of examples and use them to calculate descent
 
 
 ### Nearest neighbour classifier
