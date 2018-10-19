@@ -10,14 +10,20 @@
 Supervised learning uses labeled data to generate models. Labels classify data into one or more categories or predict a continious value.
 Some algorithms that belong to this group:
 
-* Linear regression (predicts continious value)
+### Linear regression (predicts continious value)
 
 1) find a line of least squares to minimize loss
 2) use that line to predict values of y
 
+Gradient descent - iterative method to minimize loss:
+1) pick and random line formula(hyperparameters)
+2) calculate loss in training data 
+3) adjust line formula by learning rate(step size)
+4) got to step 2
 
 
-* Nearest neighbour classifier
+
+### Nearest neighbour classifier
 
 1) Represent data in a multidimensional matrix
 2) In a multidimensional space we calculate the distance to an odd nearest neighbours, and classify into that group.
@@ -27,7 +33,7 @@ Some algorithms that belong to this group:
 
 ## Unsupervised (clustering)
 
-* k-means
+### k-means
 
 1) Decide a number of clusters desired
 2) Find a way to represent data in a multidimensional space
