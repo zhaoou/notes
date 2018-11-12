@@ -18,3 +18,14 @@
 ```
 <input type="text" name="username" ngModel>
 ```
+
+### NgModel
+* groups form fields using FormGroup nested object:
+```
+<form #f="ngForm">
+  <div ngModelGroup="passwords">
+    <input type="text" name="password" ngModel>
+    <input type="text" name="pconfirm" ngModel>
+  </div>
+</form>
+```
