@@ -29,3 +29,27 @@
   </div>
 </form>
 ```
+
+## Component communication: inputs and outputs
+
+### Inputs
+A component can receive inputs from outer component, by marking field(s) or setter(s) with `@Input()`.
+An outer component has to provide the value for the child component:
+
+```
+<order-processor [stockSymbol]="stock" ...
+// stockSymbol is the property name or setter in the child component
+// stock is the variable in the parent component
+```
+
+### Outputs
+Likewise, parent component can receive events from inner component by defining an even handler
+
+```
+<price-quoter (lastPrice)="priceQuoteHandler($event)"></price-quoter>
+```
+
+Child component must provide EventEmitter and mark it with `@Output()`
+
+* EventEmitter is a generic type and accepts `Type` argument for the type of the event it emits.
+* EventEmitter has an `emit(Type event)` method that is called every time an event occurs.
