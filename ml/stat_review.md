@@ -29,12 +29,20 @@ Shows strength of connection of a linear relationship
 
 # Probability
 
-## Space
-## Variables
-## Conditional probability
-## Probability table
-## Join and marginal probabilty
-## Venn diagram of conditional probability
+### Space
+A set of all possible outcomes of an event(experiment)
+
+### Event
+A subset of the event space that we are interested in
+* a die will show 4 or 5
+* a coin will land heads
+* a coin will land heads or tail
+
+### Random Variable
+### Conditional probability
+### Probability table
+### Join and marginal probabilty
+### Venn diagram of conditional probability
 
 # Linear Regression
 
