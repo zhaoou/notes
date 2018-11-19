@@ -209,7 +209,7 @@ An example of a balanced search tree is a 2-3 tree.
 ## Balanced Search Tree: 2-3 trees
 Coming soon
 
-#Hashtables
+# Hashtables
 Are used to store key value pairs. In Java, this idea is captured in the Map<Key, Value> interface.
 We can think of the Value reference being inside of the Key, such that a Key object contains a reference to the Value it is associated with.
 
