@@ -19,11 +19,13 @@ Measure of spread of the dataset, gives intuition of how similar the values are
 
 ## Two datasets
 ### Covariance
-Show if there is a dependence(connection) between datasets
+Shows if there is a dependence(connection) between datasets
 * can be positive and negative: if first dataset goes up, does second go up or down?
 * only sign matters, does not express scale of connection
 ### Correlation
-
+Shows strength of connection of a linear relationship
+* bound between -1 and 1
+* 0 means weak correlation and -1 and 1, strong
 
 # Probability
 
