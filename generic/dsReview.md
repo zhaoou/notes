@@ -46,7 +46,7 @@ a function f(x) belongs to g(x), if there exists constants x<sub>0</sub> and c, 
 
 &#1012; is the tight bound, this happens when big O = big omega. When O = &#937; an algorithm cannot perform better or worse then its &#1012;.
 
-#Sort/Search
+# Sort/Search
 Two commonly encountered problems in CS are sorting and searching. Sorting means ordering something in according to some rule. Searching means finding a given value in a collection of values, or determining that it is not present in the collection.
 ## Binary Search
 Binary search requires a sorted array of values.
