@@ -64,28 +64,14 @@ Backpropagation is used to optimize weights based on loss
 
 
 
-thisismetis curriculum:
 
-Week 1: Introduction to the Data Science Toolkit
-Exploratory Data Analysis, Bash, Git & GitHub, Python, pandas, matplotlib, Seaborn
 
-Week 2: Linear Regression and Machine Learning Intro
-Web scraping via BeautifulSoup and Selenium, regression with statsmodels and scikit-learn, feature selection overfitting and train/test splits, probability theory.
+linear, logistic regression, SVM, decision trees, and random forest
 
-Week 3: Linear Regression and Machine Learning Continued
-Regularization, hypothesis testing , intro to Bayes Theorem
+Naive Bayes, stochastic gradient descent 
 
-Week 4: Databases and Introduction to Machine Learning Concepts
-Classification and regression algorithms (Knn, logistic regression, SVM, decision trees, and random forest), SQL concepts, cloud servers
+Natural Language Processing techniques
 
-Week 5: More supervised learning algorithms & web tools
-Naive Bayes, stochastic gradient descent and intro to Deep Learning, Full stack in a nutshell: Python Flask, Javascript and D3.js
+Clustering algorithms, including K-means and DBSCAN, dimension reduction techniques (PCA, SVD, LDA, NMF)
 
-Week 6: Statistical Fundamentals
-MLE, GLM, Distributions, Databases ( RESTful APIs, NoSQL databases, MongoDB, pymongo) Natural Language Processing techniques
-
-Week 7:  Unsupervised Machine Learning
-Various clustering algorithms, including K-means and DBSCAN, dimension reduction techniques (PCA, SVD, LDA, NMF)
-
-Week 8: More Deep Learning & Unsupervised Learning
-Deep Learning via Keras, Recommender Systems
+Deep Learning via Keras/TF, Recommender Systems
