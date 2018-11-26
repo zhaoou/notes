@@ -35,6 +35,8 @@ Gradient descent - iterative method to minimize loss:
 * Stochastic gradient descent (SGD) - calculate gradient descent using one randomly chosen example from training set
 * Mini-batch SGD - choose a small batch of examples and use them to calculate descent
 
+If using objects(feature vectors) in linear regression, we assign coeffiecients to features to calculate good x values.
+
 ### Logistic regression
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=664f668e-e008-4f44-8600-e09ee6d629b0
