@@ -8,8 +8,8 @@
 * Confusion matrix: matrix of True Positives True Negatives False Positives and False negatives
 * Sensitivity(recall) = TP / (TP + FN)
 * Specificity(precision) = TP / (TP + FP)
-
-> gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual problems such as image classification.
+* gradient boosting is a type of gradient loss, used for problems where structured data is available
+* deep learning is used for perceptual problems such as image classification
 
 # Supervised vs Unsupervised
 
@@ -19,6 +19,8 @@ Supervised learning uses labeled data to generate models. Labels classify data i
 Some algorithms that belong to this group:
 
 ### Linear regression (predicts continious value)
+
+https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=afe70053-b8b7-43d3-9c2f-f482f479baf7
 
 1) find a line of least squares to minimize loss
 2) use that line to predict values of y
@@ -35,7 +37,11 @@ Gradient descent - iterative method to minimize loss:
 
 ### Logistic regression
 
+https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=664f668e-e008-4f44-8600-e09ee6d629b0
+
 ### Nearest neighbour classifier
+
+https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4deb-b59f-d6741064ba8a
 
 1) Represent data in a multidimensional matrix
 2) In a multidimensional space we calculate the distance to an odd nearest neighbours, and classify into that group.
@@ -44,12 +50,13 @@ Gradient descent - iterative method to minimize loss:
 
 ### Support Vector Machine
 
+https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
+
 * decision boundary (hyperplance) is computed to maximize the margin (distances between clusters)
 
-### Decision trees
+### Decision trees & Random forest
 
-### Random forest
-
+https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc5-80b6-47b9cf681a05
 
 
 ## Unsupervised (clustering)
@@ -70,12 +77,14 @@ Gradient descent - iterative method to minimize loss:
 
 ### Neural Networks
 
-Neurons https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
+Neurons review https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
 
 Each layer stores weights
 
 Backpropagation is used to optimize weights based on loss
 
 #### Deep Learning with Keras/TF
+
+https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
 
 
