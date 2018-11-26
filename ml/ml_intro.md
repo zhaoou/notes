@@ -8,7 +8,7 @@
 * Confusion matrix: matrix of True Positives True Negatives False Positives and False negatives
 * Sensitivity(recall) = TP / (TP + FN)
 * Specificity(precision) = TP / (TP + FP)
-* gradient boosting is a type of gradient descent, used for problems where structured data is available
+* gradient boosting is used for problems where structured data is available
 * deep learning is used for perceptual problems such as image classification
 
 # Supervised vs Unsupervised
