@@ -9,11 +9,11 @@
 * Sensitivity(recall) = TP / (TP + FN)
 * Specificity(precision) = TP / (TP + FP)
 
-> gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual prob- lems such as image classification.
+> gradient boosting is used for problems where structured data is available, whereas deep learning is used for perceptual problems such as image classification.
 
 # Supervised vs Unsupervised
 
-## Supervised (classification and regression)
+## Supervised (classification, regression) & ML theory
 
 Supervised learning uses labeled data to generate models. Labels classify data into one or more categories or predict a continious value.
 Some algorithms that belong to this group:
@@ -33,6 +33,7 @@ Gradient descent - iterative method to minimize loss:
 * Stochastic gradient descent (SGD) - calculate gradient descent using one randomly chosen example from training set
 * Mini-batch SGD - choose a small batch of examples and use them to calculate descent
 
+### Logistic regression
 
 ### Nearest neighbour classifier
 
@@ -43,12 +44,13 @@ Gradient descent - iterative method to minimize loss:
 
 ### Support Vector Machine
 
-* decision boundary (hyperplance) is computed to maximize the margin (distances between clusters).
+* decision boundary (hyperplance) is computed to maximize the margin (distances between clusters)
 
-### Neural Networks
+### Decision trees
 
-Each layer stores weights
-Backpropagation is used to optimize weights based on loss
+### Random forest
+
+
 
 ## Unsupervised (clustering)
 
@@ -57,21 +59,23 @@ Backpropagation is used to optimize weights based on loss
 1) Decide a number of clusters desired
 2) Find a way to represent data in a multidimensional space
 
+### DBSCAN
+
+### dimension reduction techniques (PCA, SVD, LDA, NMF)
 
 
 
+## Natural Language Processing techniques
 
 
+### Neural Networks
+
+Neurons https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
+
+Each layer stores weights
+
+Backpropagation is used to optimize weights based on loss
+
+#### Deep Learning with Keras/TF
 
 
-
-
-linear, logistic regression, SVM, decision trees, and random forest
-
-Naive Bayes, stochastic gradient descent 
-
-Natural Language Processing techniques
-
-Clustering algorithms, including K-means and DBSCAN, dimension reduction techniques (PCA, SVD, LDA, NMF)
-
-Deep Learning via Keras/TF, Recommender Systems
