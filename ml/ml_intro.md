@@ -68,9 +68,40 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4de
 https://www.youtube.com/watch?v=N1vOgolbjSc
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
 
+* classification algorithm
 * decision boundary (hyperplane) is computed to maximize the margin (distances between clusters)
-* find the widest margin between the groups
+* finds the widest margin between the groups
 * points closest to the hyperplane(line) are called support vectors
+* in a complex situation we can add calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
+```
+|     0
+| 0  *    0
+|0    **
+| 0     0
+------------
+
+Rescale and shift:
+
+     |0
+ 0  *|   0
+0----**-----
+  0  | 0
+     |
+     
+
+For this example, a good z value could be a sum of absolute values of x and y: higher z values will be assigned to 0s and lower to *.
+
+
+From a side perspective, we will have a layer of * at the bottom and 0s on top:
+
+| 0    0   0
+|0 0     0 
+ /---------------/
+/____*__________/  plane separating the groups
+|     **
+|
+|z
+```
 
 #### Linear SVM
 
