@@ -68,10 +68,18 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4de
 https://www.youtube.com/watch?v=N1vOgolbjSc
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
 
+
+#### Linear SVM
+
+* support vectors represent the model, and we don't need training data in memory
 * classification algorithm
 * decision boundary (hyperplane) is computed to maximize the margin (distances between clusters)
 * finds the widest margin between the groups
 * points closest to the hyperplane(line) are called support vectors
+
+
+#### Multidimentional SVM
+
 * in a complex situation we can add calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
 ```
 |     0
@@ -102,12 +110,6 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 |
 |z
 ```
-
-#### Linear SVM
-
-* support vectors represent the model, and we don't need training data in memory
-
-#### Multidimentional SVM
 
 
 ### Decision trees & Random forest
