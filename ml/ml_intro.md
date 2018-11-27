@@ -43,6 +43,17 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=664f668e-e008-4f4
 
 In linear regression, both x and y are continious variables, but in logistic regression x is continious and y is binary: (Passed/Failed, True/False, etc)
 
+* Odds vs probability: on a fair die, we have odds 1 to 5 of getting a 3, but probability of this is 1/6th.
+
+```
+         p
+odds = ----
+       1 - p
+```
+
+* logistic function is a sigmoid function with domain R and range 0-1
+* logit is log of odds function
+
 ### Nearest neighbour classifier
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4deb-b59f-d6741064ba8a
