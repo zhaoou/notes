@@ -41,6 +41,8 @@ If using objects(feature vectors) in linear regression, we assign coeffiecients 
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=664f668e-e008-4f44-8600-e09ee6d629b0
 
+In linear regression, both x and y are continious variables, but in logistic regression x is continious and y is binary: (Passed/Failed, True/False, etc)
+
 ### Nearest neighbour classifier
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4deb-b59f-d6741064ba8a
