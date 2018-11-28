@@ -78,9 +78,9 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 * points closest to the hyperplane(line) are called support vectors
 
 
-#### Multidimentional SVM
+#### Multidimensional SVM
 
-* in a complex situation we can add calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
+* in a complex situation we can calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
 ```
 |     0
 | 0  *    0
@@ -112,9 +112,14 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 |z
 ```
 
-http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png
+![visualized](http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png)
+
+
+[morebetter](http://beta.cambridgespark.com/courses/jpm/05-module.html)
 
 ### Decision trees & Random forest
+
+
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc5-80b6-47b9cf681a05
 
