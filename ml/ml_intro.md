@@ -138,17 +138,17 @@ There are provided kernel functions:
 
 Every kernel is characterised by a set of hyperparameters that have to be tuned for a particular problem
 
-In RBF SVMs, only one kernel parameter has to be optimised - γ - in addition to the regularisation parameter C.
+In RBF SVMs, only one kernel parameter has to be optimised - γ (gamma) - in addition to the regularisation parameter C.
 
 The hyperparameter γ determines the degree of nonlinearity or width of the RBF kernel.
 
-* Higher values of γ lead to greater nonlinearity, sharper peaks and "spiky" boundaries that surround individual instances.
+* Higher values of γ lead to greater nonlinearity, sharper peaks and "spiky" boundaries around instances.
 
 * Lower values of γ lead to smoother surfaces since the RBF kernel tends towards a linear boundary.
 
 The cost or regularisation parameter C controls the trade-off between maximising the margin and minimising the training error.
 
-* As C increases, tolerance of misclassifications is lower and usually the hard-margin case is obtained. The high values of C will force the creation of complex boundaries that misclassify as few training samples as possible (possibly overfitting).
+* High values of C will force the creation of complex boundaries that misclassify as few training samples as possible (overfitting).
 
 * As C decreases, wider margins are created, but if it is too small, there may be underfitting.
 
