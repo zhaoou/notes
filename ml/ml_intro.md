@@ -1,3 +1,4 @@
+:book:
 * example - one instance, object of data
 * feature - one field or value from example
 * label - value that we will be predicting
