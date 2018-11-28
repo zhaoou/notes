@@ -1,3 +1,5 @@
+# ML
+
 :book:
 * example - one instance, object of data
 * feature - one field or value from example
@@ -12,14 +14,13 @@
 * gradient boosting is used for problems where structured data is available
 * deep learning is used for perceptual problems such as image classification
 
-# Supervised vs Unsupervised
 
-## Supervised (classification, regression) & ML theory
+# Supervised (classification, regression) & ML theory
 
 Supervised learning uses labeled data to generate models. Labels classify data into one or more categories or predict a continious value.
 Some algorithms that belong to this group:
 
-### Linear regression (predicts continious value)
+## Linear regression (predicts continious value)
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=afe70053-b8b7-43d3-9c2f-f482f479baf7
 
@@ -38,7 +39,7 @@ Gradient descent - iterative method to minimize loss:
 
 If using objects(feature vectors) in linear regression, we assign coeffiecients to features to calculate good x values.
 
-### Logistic regression
+## Logistic regression
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=664f668e-e008-4f44-8600-e09ee6d629b0
 
@@ -55,7 +56,7 @@ odds = ----
 * logistic function is a sigmoid function with domain R and range 0-1
 * logit is log of odds function
 
-### Nearest neighbour classifier
+## Nearest neighbour classifier
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4deb-b59f-d6741064ba8a
 
@@ -64,14 +65,14 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4de
 3) use euclidian or manhattan distance to calculate the distance
 
 
-### Support Vector Machine
+## Support Vector Machine
 
 https://www.youtube.com/watch?v=N1vOgolbjSc
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
 
 
-#### Linear SVM
+### Linear SVM
 
 * support vectors represent the model, and we don't need training data in memory
 * classification algorithm
@@ -82,13 +83,13 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 
 The main goal of any SVM model is to find a classification function f(x) that best fits the dataset (and generalises well!) while maximising the distance (margin) between the nearest points of the two classes
 
-##### Linear non-separable data
+#### Linear non-separable data
 
 In order to address cases of non-separable data while still using a linear model, the implementation of SVMs can be expanded with the addition of **slack variables**. The slack variables relax the hard-margin constraints where misclassifications are not allowed, leading to softer margins that tolerate misclassifications to a particular degree. 
 
 A regularisation parameter C>0, also known as the cost or penalty error, determines the trade-off between margin maximisation and training error toleration. If C is sufficiently large, the soft-margin SVM will put the emphasis on minimising the number of misclassifications at the expense of the margin. By contrast, if C is close to zero, the emphasis will be on maximising the margins while being more tolerant to misclassifications.
 
-#### Multidimensional SVM
+### Multidimensional SVM
 
 * in a complex situation we can calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
 ```
@@ -127,29 +128,25 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 
 [more better](http://beta.cambridgespark.com/courses/jpm/05-module.html)
 
-### Decision trees & Random forest
+## Decision trees & Random forest
 
 
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc5-80b6-47b9cf681a05
 
 
-## Unsupervised (clustering)
+# Unsupervised (clustering)
 
-### k-means
+## k-means
 
 1) Decide a number of clusters desired
 2) Find a way to represent data in a multidimensional space
-
-### DBSCAN
-
-### dimension reduction techniques (PCA, SVD, LDA, NMF)
 
 
 ## Natural Language Processing techniques
 
 
-## Neural Networks(supervised)
+# Neural Networks(supervised)
 
 Neurons review https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
 
@@ -157,7 +154,7 @@ Each layer stores weights
 
 Backpropagation is used to optimize weights based on loss
 
-#### Deep Learning with Keras/TF
+## Deep Learning with Keras/TF
 
 https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
 
