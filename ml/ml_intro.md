@@ -97,7 +97,8 @@ Rescale and shift:
      |
      
 
-For this example, a good z value could be a sum of absolute values of x and y: higher z values will be assigned to 0s and lower to *.
+For this example, a good z value could be a sum of absolute values of x and y: 
+higher z values will be assigned to 0s and lower to *.
 
 
 From a side perspective, we will have a layer of * at the bottom and 0s on top:
@@ -111,6 +112,7 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 |z
 ```
 
+http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png
 
 ### Decision trees & Random forest
 
