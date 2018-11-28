@@ -183,11 +183,12 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc
 
 # Neural Networks(supervised)
 
-Neurons review https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
+Neurons review 1: https://www.youtube.com/watch?v=uXt8qF2Zzfo&index=13&list=PLUl4u3cNGP63gFHB6xb-kVBiQHYe_4hSi&t=1508s
 
-Each layer stores weights
+review 2: https://www.youtube.com/watch?v=d14TUNcbn1k&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=4
 
-Backpropagation is used to optimize weights based on loss
+* each layer stores weights
+* backpropagation is used to optimize weights based on loss
 
 ## Deep Learning with Keras/TF
 
