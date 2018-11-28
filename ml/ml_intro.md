@@ -80,6 +80,7 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 * points closest to the hyperplane(line) are called support vectors
 * margin is the distance between the dividing line and the nearest datapoint, we want to maximize it
 
+The main goal of any SVM model is to find a classification function f(x) that best fits the dataset (and generalises well!) while maximising the distance (margin) between the nearest points of the two classes
 
 #### Multidimensional SVM
 
