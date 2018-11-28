@@ -7,8 +7,8 @@
 * feature engineering - selection and merging of features to minimize loss
 * ReLU(Rectified Linear Unit) function: max(x | 0)
 * Confusion matrix: matrix of True Positives True Negatives False Positives and False negatives
-* Sensitivity(recall) = TP / (TP + FN)
-* Specificity(precision) = TP / (TP + FP)
+* Recall(Sensitivity) = TP / (TP + FN)
+* Precision(Specificity) = TP / (TP + FP)
 * gradient boosting is used for problems where structured data is available
 * deep learning is used for perceptual problems such as image classification
 
@@ -81,6 +81,12 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 * points closest to the hyperplane(line) are called support vectors
 
 The main goal of any SVM model is to find a classification function f(x) that best fits the dataset (and generalises well!) while maximising the distance (margin) between the nearest points of the two classes
+
+##### Linear non-separable data
+
+In order to address cases of non-separable data while still using a linear model, the implementation of SVMs can be expanded with the addition of **slack variables**. The slack variables relax the hard-margin constraints where misclassifications are not allowed, leading to softer margins that tolerate misclassifications to a particular degree. 
+
+A regularisation parameter C>0, also known as the cost or penalty error, determines the trade-off between margin maximisation and training error toleration. If C is sufficiently large, the soft-margin SVM will put the emphasis on minimising the number of misclassifications at the expense of the margin. By contrast, if C is close to zero, the emphasis will be on maximising the margins while being more tolerant to misclassifications.
 
 #### Multidimensional SVM
 
