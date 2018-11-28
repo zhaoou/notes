@@ -67,6 +67,7 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4de
 ### Support Vector Machine
 
 https://www.youtube.com/watch?v=N1vOgolbjSc
+
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
 
 
@@ -77,6 +78,7 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 * decision boundary (hyperplane) is computed to maximize the margin (distances between clusters)
 * finds the widest margin between the groups
 * points closest to the hyperplane(line) are called support vectors
+* margin is the distance between the dividing line and the nearest datapoint, we want to maximize it
 
 
 #### Multidimensional SVM
