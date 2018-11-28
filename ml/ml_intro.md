@@ -75,10 +75,10 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f
 
 * support vectors represent the model, and we don't need training data in memory
 * classification algorithm
+* margin is the distance between the dividing line and the nearest datapoint, we want to maximize it
 * decision boundary (hyperplane) is computed to maximize the margin (distances between clusters)
 * finds the widest margin between the groups
 * points closest to the hyperplane(line) are called support vectors
-* margin is the distance between the dividing line and the nearest datapoint, we want to maximize it
 
 The main goal of any SVM model is to find a classification function f(x) that best fits the dataset (and generalises well!) while maximising the distance (margin) between the nearest points of the two classes
 
@@ -119,7 +119,7 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 ![visualized](http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png)
 
 
-[morebetter](http://beta.cambridgespark.com/courses/jpm/05-module.html)
+[more better](http://beta.cambridgespark.com/courses/jpm/05-module.html)
 
 ### Decision trees & Random forest
 
