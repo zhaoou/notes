@@ -55,6 +55,7 @@ odds = ----
 
 * logistic function is a sigmoid function with domain R and range 0-1
 * logit is log of odds function
+* logistic regression gives us a probability that test instance is one or another group
 
 ## Nearest neighbour classifier
 
@@ -70,7 +71,6 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=c322c0d5-9cf9-4de
 https://www.youtube.com/watch?v=N1vOgolbjSc
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=f21fcc8f-93a8-49f6-9ff8-0f339b0728bd
-
 
 ### Linear SVM
 
@@ -129,9 +129,9 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 ![visualized](http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png)
 
 
-Backprojection from feature space back to input space creates a non-linear boundary that we need.
+Backprojection from feature space back to input space creates a non-linear boundary that we call model.
 
-There are **provided kernel functions**:
+**Provided kernel functions:**
 * Gaussian Radial Basis Function (RBF)
 * Polynomial
 * Sigmoid
@@ -147,7 +147,7 @@ Every kernel is characterised by a set of hyperparameters that have to be tuned 
 
 **In RBF SVMs** one additional kernel parameter has to be optimised - γ (gamma).
 
-The hyperparameter γ determines the degree of nonlinearity or width of the RBF kernel.
+γ determines the degree of nonlinearity or width of the RBF kernel.
 
 * Higher values of γ lead to greater nonlinearity, sharper peaks and "spiky" boundaries around instances.
 
@@ -165,7 +165,6 @@ The most popular and widely-used techniques for multi-class problems are the "on
 
 
 ## Decision trees & Random forest
-
 
 
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc5-80b6-47b9cf681a05
