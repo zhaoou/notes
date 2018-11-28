@@ -131,14 +131,21 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 
 Backprojection from feature space back to input space creates a non-linear boundary that we need.
 
-There are provided kernel functions:
+There are **provided kernel functions**:
 * Gaussian Radial Basis Function (RBF)
 * Polynomial
 * Sigmoid
 
 Every kernel is characterised by a set of hyperparameters that have to be tuned for a particular problem
 
-In RBF SVMs, only one kernel parameter has to be optimised - γ (gamma) - in addition to the regularisation parameter C.
+**All SVMs have** a cost or regularisation parameter, C controls the trade-off between maximising the margin and minimising the training error.
+
+* High values of C will force the creation of complex boundaries that misclassify as few training samples as possible (overfitting).
+
+* As C decreases, wider margins are created, but if it is too small, there may be underfitting.
+
+
+**In RBF SVMs** one additional kernel parameter has to be optimised - γ (gamma).
 
 The hyperparameter γ determines the degree of nonlinearity or width of the RBF kernel.
 
@@ -146,14 +153,16 @@ The hyperparameter γ determines the degree of nonlinearity or width of the RBF 
 
 * Lower values of γ lead to smoother surfaces since the RBF kernel tends towards a linear boundary.
 
-The cost or regularisation parameter C controls the trade-off between maximising the margin and minimising the training error.
+### Multi-class SVMs
 
-* High values of C will force the creation of complex boundaries that misclassify as few training samples as possible (overfitting).
+The most popular and widely-used techniques for multi-class problems are the "one-against-all" and "one-against-one".
 
-* As C decreases, wider margins are created, but if it is too small, there may be underfitting.
+* The "one-against-all" approach involves determining how well a sample is modelled by each class individually, and subsequently selecting the class it is modelled-by at its best. For a N-class problem, N binary classifiers are created and trained, one for each given class.
 
+* The "one-against-one" approach constructs several binary SVM classifiers for each available pairwise combination of classes and the results of these individual classifiers are aggregated using a voting mechanism such as the "majority vote". In this case, one model for each pairwise combination of classes is created.
 
 [source](http://beta.cambridgespark.com/courses/jpm/05-module.html)
+
 
 ## Decision trees & Random forest
 
