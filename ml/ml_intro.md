@@ -89,9 +89,12 @@ In order to address cases of non-separable data while still using a linear model
 
 A regularisation parameter C>0, also known as the cost or penalty error, determines the trade-off between margin maximisation and training error toleration. If C is sufficiently large, the soft-margin SVM will put the emphasis on minimising the number of misclassifications at the expense of the margin. By contrast, if C is close to zero, the emphasis will be on maximising the margins while being more tolerant to misclassifications.
 
-### Multidimensional SVM
+### Non-linear (kernel) SVM
 
-* in a complex situation we can calculate another dimension of data to spread the datapoint into more dimensions and use a plane to separate the points:
+* in a complex situation we can calculate another dimension of data to spread the datapoints into more dimensions
+* transformation of input space into feature space
+* use non-linear function
+* use a plane to separate the points:
 ```
 |     0
 | 0  *    0
@@ -126,7 +129,31 @@ From a side perspective, we will have a layer of * at the bottom and 0s on top:
 ![visualized](http://beta.cambridgespark.com/courses/jpm/figures/mod5_kernel_trick.png)
 
 
-[more better](http://beta.cambridgespark.com/courses/jpm/05-module.html)
+Backprojection from feature space back to input space creates a non-linear boundary that we need.
+
+There are provided kernel functions:
+* Gaussian Radial Basis Function (RBF)
+* Polynomial
+* Sigmoid
+
+Every kernel is characterised by a set of hyperparameters that have to be tuned for a particular problem
+
+In RBF SVMs, only one kernel parameter has to be optimised - γ - in addition to the regularisation parameter C.
+
+The hyperparameter γ determines the degree of nonlinearity or width of the RBF kernel.
+
+* Higher values of γ lead to greater nonlinearity, sharper peaks and "spiky" boundaries that surround individual instances.
+
+* Lower values of γ lead to smoother surfaces since the RBF kernel tends towards a linear boundary.
+
+The cost or regularisation parameter C controls the trade-off between maximising the margin and minimising the training error.
+
+* As C increases, tolerance of misclassifications is lower and usually the hard-margin case is obtained. The high values of C will force the creation of complex boundaries that misclassify as few training samples as possible (possibly overfitting).
+
+* As C decreases, wider margins are created, but if it is too small, there may be underfitting.
+
+
+[source](http://beta.cambridgespark.com/courses/jpm/05-module.html)
 
 ## Decision trees & Random forest
 
