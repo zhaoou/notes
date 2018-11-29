@@ -170,7 +170,25 @@ https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc
 
 ### Decision trees
 
-definition
+Definition
+
+Decision tree (DT) is a supervised learning classification algorithm.
+
+How it works?
+
+DT works by building a tree model that splits data into smaller subsets. 
+
+* Leafs of that tree store classificatin label.
+* Nodes contain **feature test condition**, like x<sub>5</sub> > 5
+
+```
+        *                
+      /   \
+    *       *
+  /   \   /   \
+  A   B   C   D 
+```
+
 
 how to build
 
