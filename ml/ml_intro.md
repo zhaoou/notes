@@ -166,8 +166,25 @@ The most popular and widely-used techniques for multi-class problems are the "on
 
 ## Decision trees & Random forest
 
-
 https://matterhorn.dce.harvard.edu/engage/player/watch.html?id=8892a8b7-25eb-4bc5-80b6-47b9cf681a05
+
+### Decision trees
+
+definition
+
+how to build
+
+gini node impurity
+
+node purity gain
+
+### Random Forest
+
+* Ensemble method - combining several models, like decision trees, to created an averaged model
+* Bootstrapping - creating random subsets from sample with replacement. Vectors can be reused for training.
+* Bagging (Bootstrap aggregating) 
+
+
 
 
 # Unsupervised (clustering)
